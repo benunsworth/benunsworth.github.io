@@ -6,48 +6,91 @@
 </description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 07 Mar 2016 11:57:02 +0000</pubDate>
-    <lastBuildDate>Mon, 07 Mar 2016 11:57:02 +0000</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <pubDate>Mon, 07 Mar 2016 20:04:19 +0000</pubDate>
+    <lastBuildDate>Mon, 07 Mar 2016 20:04:19 +0000</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
     
       <item>
-        <title>Testing Jekyll Serve</title>
-        <description>&lt;p&gt;Testing that Jekyll serve does what I expect it to do.&lt;/p&gt;
+        <title>Five things I learned on my first Ultra Marathon</title>
+        <description>&lt;p&gt;The Royal Parks Foundation Ultra (50km/31miles) was my first run past the 26.2 mile point and I learned a few things along the way.&lt;/p&gt;
+
+&lt;h2 id=&quot;consistency-is-key&quot;&gt;1. Consistency is key&lt;/h2&gt;
+&lt;p&gt;I love to have a perfect training plan, based on well-researched techniques and executed by experienced athletes. However, the best plan is one you can follow. I kept mine simple - run a few times during the week and go a bit longer at the weekend.&lt;/p&gt;
+
+&lt;h2 id=&quot;you-can-increase-volume-faster-than-you-think&quot;&gt;2. You can increase volume faster than you think&lt;/h2&gt;
+&lt;p&gt;There’s lots of research out there that debunks the “10% rule” of increasing run distance. You’ll need to listen to your own body to work out what’s right for you, but I found that after a few weeks of (low heart rate) regular running I jumped from 10km to 20-25km long runs with no ill effect.&lt;/p&gt;
+
+&lt;h2 id=&quot;be-suspicious-of-footwear-fads&quot;&gt;3. Be suspicious of footwear fads&lt;/h2&gt;
+&lt;p&gt;The running shoe market exists to make sure someone somewhere gets paid. This is not a bad thing, I like running shoes. In previous years I have had gait analysis, structured shoes and even custom insoles to correct my imperfect running form. This year I picked a pair that had the least padding and structure I could get away with. Me and my dodgy run form have been getting on fine.&lt;/p&gt;
+
+&lt;h2 id=&quot;work-on-your-mental-toughness&quot;&gt;4. Work on your mental toughness&lt;/h2&gt;
+&lt;p&gt;On race day I started to struggle at the 35km point. I was in Richmond Park and I knew every step of the way to the finish. In a marathon that’s 7km to go, I know how to tough that out. I had no idea how to manage another 15km, my mind was off the job in hand… 3 hours of non-stop running became a short walk. Short walks in marathon running are more addictive than crack.&lt;/p&gt;
+
+&lt;h2 id=&quot;run-a-marathon-in-your-build-up&quot;&gt;5. Run a marathon in your build up&lt;/h2&gt;
+&lt;p&gt;I’ve raced Ironman, done a few marathons and thought I knew better than what every training plan was telling me. I had regular long runs of 14 to 20 miles, so felt no need to go up to 26.2 in the build up - I raced a half marathon instead of the scheduled slow marathon run. 31 miles is a long way to run, my mind and my legs needed that marathon.&lt;/p&gt;
+
+&lt;iframe height=&quot;405&quot; width=&quot;590&quot; frameborder=&quot;0&quot; allowtransparency=&quot;true&quot; scrolling=&quot;no&quot; src=&quot;http://www.strava.com/activities/206432259/embed/0297bca425d7e1db887ab4dcb4719c6d5ee9a688&quot;&gt;&lt;/iframe&gt;
 </description>
-        <pubDate>Mon, 07 Mar 2016 11:55:00 +0000</pubDate>
-        <link>http://yourdomain.com/jekyll/2016/03/07/testing-jekyll-serve.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/jekyll/2016/03/07/testing-jekyll-serve.html</guid>
+        <pubDate>Tue, 14 Oct 2014 00:00:00 +0100</pubDate>
+        <link>http://yourdomain.com/2014/10/five-things-learned-first-ultra</link>
+        <guid isPermaLink="true">http://yourdomain.com/2014/10/five-things-learned-first-ultra</guid>
+        
+        <category>running,</category>
+        
+        <category>ultra,</category>
+        
+        <category>training</category>
         
         
-        <category>jekyll</category>
+        <category>running</category>
         
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>Where do the World Cup squads play Club football?</title>
+        <description>&lt;p&gt;The Guardian have released some great data on the 2014 FIFA World Cup squads. As the tournament draws to a close, I’ve taken a look at where the players play their club football.&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;h1 id=&quot;players-by-club-country&quot;&gt;Players by Club Country&lt;/h1&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;iframe width=&quot;1000&quot; height=&quot;1000&quot; src=&quot;http://jsfiddle.net/benunsworth/FtFB2/embedded/result,js/&quot; frameborder=&quot;0&quot;&gt; &lt;/iframe&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I’ve borrowed from the Mike Bostock &lt;a href=&quot;http://bost.ocks.org/mike/uberdata/&quot;&gt;Uber Rides visualisation&lt;/a&gt; and &lt;a href=&quot;http://www.delimited.io/&quot;&gt;delimited.io&lt;/a&gt;. The chord diagram is a great way to look at relationships between data.&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In this example I’ve used a pivot table to build a matrix representing “country plays for” and “country plays club football in”. If you click on the JavaScript tab of the embed above you can see this data.&lt;/p&gt;
 
+&lt;p&gt;The matrix of data is associated with the Country’s represented at this year’s World Cup, the &lt;a href=&quot;http://d3js.org/&quot;&gt;D3 library&lt;/a&gt; performs it’s magic and the chord diagram is born.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-does-the-diagram-show&quot;&gt;What does the diagram show?&lt;/h1&gt;
+
+&lt;p&gt;If a data visualisation is doing it’s job, it should be easy to see the story.&lt;/p&gt;
+
+&lt;p&gt;The width of the band at each country name show how many players at the world cup play their club football in that country.&lt;/p&gt;
+
+&lt;p&gt;If you hover over the band with the country name you can see the flow of players in and out of a country. Hovering on my country, England, shows that no English Squad players play their club football in any other 2014 World Cup nation - but lots of other international players do play their club football in the English leagues.&lt;/p&gt;
+
+&lt;h1 id=&quot;note-about-the-data&quot;&gt;Note about the data&lt;/h1&gt;
+
+&lt;p&gt;The D3 chord diagram requires a square matrix, in this case a 32 x 32 matrix of 2014 FIFA World Cup Teams. There are players at the world cup who play their club football in countries not at this year’s world cup. This is not represented in the diagram.&lt;/p&gt;
+
+&lt;h1 id=&quot;things-to-improve&quot;&gt;Things to improve&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Parse the data programmatically, rather than dumping the matrix into the code&lt;/li&gt;
+  &lt;li&gt;Rotate country labels and place outside the diagram, to improve legibility&lt;/li&gt;
+  &lt;li&gt;Make better use of colour to represent data flow, right now it’s purely asthetic&lt;/li&gt;
+&lt;/ul&gt;
 </description>
-        <pubDate>Thu, 30 Jul 2015 11:50:29 +0100</pubDate>
-        <link>http://yourdomain.com/jekyll/update/2015/07/30/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2015/07/30/welcome-to-jekyll.html</guid>
+        <pubDate>Thu, 10 Jul 2014 11:55:00 +0100</pubDate>
+        <link>http://yourdomain.com/2014/07/world-cup-d3-chord-diagram</link>
+        <guid isPermaLink="true">http://yourdomain.com/2014/07/world-cup-d3-chord-diagram</guid>
+        
+        <category>data,</category>
+        
+        <category>d3,</category>
+        
+        <category>visualisation</category>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>data</category>
         
       </item>
     
