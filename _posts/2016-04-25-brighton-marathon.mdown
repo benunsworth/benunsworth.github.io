@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Brighton Marathon"
-date:   2016-04-25
+date:   2016-04-25 19:20
 categories: running
 tags: running, ultra, training
 permalink: /:year/:month/:title 
@@ -19,9 +19,9 @@ I had a decent block of training from January to April and dipped under 1:30 at 
 
 # Race Weekend
 
-I like to run the day before big races and I am collecting as many different [Parkruns][Parkrun] as I can (Parkrun Tourism). I've collected all my very local runs, so went over to [Wormwood Scrubs Parkrun][Wormwood Scrubs] for a gentle jog around a very boggy field.
+I like to run the day before big races and I am collecting as many different [Parkruns](http://www.parkrun.org.uk/) as I can (Parkrun Tourism). I've collected all my very local runs, so went over to [Wormwood Scrubs Parkrun](http://www.parkrun.org.uk/wormwoodscrubs/results/weeklyresults/?runSeqNumber=255) for a gentle jog around a very boggy field.
 
-Drove down to Brighton and joined a massive queue to collect my number - it's worth registering on Friday if you can. Stayed at the very lovely [Pelham House][Pelham House] in Lewes, right by the station which is just a short train ride from Brighton.
+Drove down to Brighton and joined a massive queue to collect my number - it's worth registering on Friday if you can. Stayed at the very lovely [Pelham House](http://www.pelhamhouse.com/) in Lewes, right by the station which is just a short train ride from Brighton.
 
 Race morning was very relaxed. Short train ride and a 15 minute walk to the start at Preston Park. Luckily I paid my entry fee with an American Express card, who were an event sponsor. This got me into the AMEX tent for free coffee and biscuits, a place to sit and some minor celebs to chat with.
 
@@ -34,8 +34,4 @@ Then, at almost exactly 20 miles, it went from being an easy run to a fight to h
 And then it was done! 3:26:10 was the official time, into the first aid tent to get the cuts patched up and then a massive roast dinner in a pub in Hove.
 
 <iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/548482473/embed/ffc4af09b1711e782efc22260cbfc1924faf4ca1'></iframe>
-
-
-[Parkrun]:      http://www.parkrun.org.uk/
-[Wormwood Scrubs]:		http://www.parkrun.org.uk/wormwoodscrubs/results/weeklyresults/?runSeqNumber=255
-[Pelham House]:		http://www.pelhamhouse.com/
+	
