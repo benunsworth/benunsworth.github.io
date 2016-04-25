@@ -22,4 +22,6 @@ L.marker([51.455486, -0.060688]).addTo(map).bindPopup("<b>Peckham Rye</b><br>PB:
 L.marker([51.460143, -0.025019]).addTo(map).bindPopup("<b>Hilly Fields</b><br>PB: 20:07<br>Runs: 1");
 L.marker([51.419846, -0.065703]).addTo(map).bindPopup("<b>Crystal Palace</b><br>PB: 19:48<br>Runs: 1");
 L.marker([55.978806, -3.291585]).addTo(map).bindPopup("<b>Edinburgh</b><br>PB: 23:58<br>Runs: 1");
-L.marker([51.356926, -0.231078]).addTo(map).bindPopup("<b>Nonsuch</b><br>PB: 21:17<br>Runs: 1")
+L.marker([51.356926, -0.231078]).addTo(map).bindPopup("<b>Nonsuch</b><br>PB: 21:17<br>Runs: 1");
+L.marker([51.520412, -0.238523]).addTo(map).bindPopup("<b>Wormwood Scrubs</b><br>PB: 24:07<br>Runs: 1")
+L.marker([51.426567, -0.309516]).addTo(map).bindPopup("<b>Kingston</b><br>PB: 19:33<br>Runs: 1")
