@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Brighton Marathon"
-date:   2016-04-25 19:20
+date:   2016-04-25
 categories: running
 tags: running, ultra, training
 permalink: /:year/:month/:title 
