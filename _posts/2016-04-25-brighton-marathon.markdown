@@ -11,11 +11,11 @@ It's been a week since Brighton Marathon. My legs have almost recovered and I've
 
 # Preparation
 
-I had made some bold claims about wanting to run a sub 3 hour marathon in 2016. This is the benchmark for good amateur club runners. My best time is 3:21 and I set this on the marathon leg of an Ironman triathlon, which means it's at least pysiologically possible for me. I made a bet with friends, started training and clocked a 3:28 at the Marine Corp Marathon (Washington DC) back in October. I was lighter and the base fitness was in the bank.
+I had made some bold claims about wanting to run a sub 3 hour marathon in 2016. This is the benchmark for good amateur club runners. My best time is 3:21 and I set this on the marathon leg of an Ironman triathlon, which means it's at least physiologically possible for me. I made a bet with friends, started training and clocked a 3:28 at the Marine Corp Marathon (Washington DC) back in October. I was lighter and the base fitness was in the bank.
 
 This was quickly followed by injury, surgery, a job change and a house move. The fitness was lost, some weight gained and my goals quickly re-assessed.
 
-I had a decent block of training from January to April and dipped under 1:30 at the Hampton Court Palace Half Marathon. A sub-3 was not achieveable, but my 3:21 personal best was the new target.
+I had a decent block of training from January to April and dipped under 1:30 at the Hampton Court Palace Half Marathon. A sub-3 was not achievable, but my 3:21 personal best was the new target.
 
 # Race Weekend
 
