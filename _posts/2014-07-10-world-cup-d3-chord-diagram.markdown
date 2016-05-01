@@ -7,7 +7,7 @@ tags: data, d3, visualisation
 permalink: /:year/:month/:title 
 ---
 
-The Guardian have released some great data on the 2014 FIFA World Cup squads. As the tournament draws to a close, I've taken a look at where the players play their club football.
+The Guardian have released some great data on the 2014 FIFA World Cup squads. As the tournament draws to a close, I've taken a look at where the players play their club football. <!--excerpt-->
 
 # Players by Club Country
 
