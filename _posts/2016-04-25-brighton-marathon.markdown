@@ -5,9 +5,10 @@ date:   2016-04-25
 categories: running
 tags: running, ultra, training
 permalink: /:year/:month/:title 
+excerpt_separator: <!--excerpt--> 
 ---
 
-It's been a week since Brighton Marathon. My legs have almost recovered and I've had time to reflect on how it went.
+It's been a week since Brighton Marathon. My legs have almost recovered and I've had time to reflect on how it went. <!--excerpt-->
 
 # Preparation
 

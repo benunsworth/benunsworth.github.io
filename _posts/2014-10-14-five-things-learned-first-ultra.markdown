@@ -5,9 +5,10 @@ date:   2014-10-14
 categories: running
 tags: running, ultra, training
 permalink: /:year/:month/:title 
+excerpt_separator: <!--excerpt--> 
 ---
 
-The Royal Parks Foundation Ultra (50km/31miles) was my first run past the 26.2 mile point and I learned a few things along the way.
+The Royal Parks Foundation Ultra (50km/31miles) was my first run past the 26.2 mile point and I learned a few things along the way. <!--excerpt-->
 
 ## 1. Consistency is key 
 I love to have a perfect training plan, based on well-researched techniques and executed by experienced athletes. However, the best plan is one you can follow. I kept mine simple - run a few times during the week and go a bit longer at the weekend.

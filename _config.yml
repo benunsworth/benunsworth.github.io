@@ -7,7 +7,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: benunsworth
 github_username:  benunsworth
-excerpt_separator: :<!--excerpt--> #insert this into posts to mark where the excerpts end
+excerpt_separator: <!--excerpt--> #insert this into posts to mark where the excerpts end
 
 # Build settings
 markdown: kramdown
