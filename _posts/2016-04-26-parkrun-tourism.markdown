@@ -7,8 +7,6 @@ tags: running, training, parkrun
 permalink: /:year/:month/:title 
 ---
 
-# My introduction to parkrun
-
 In 2007 I moved to South West London and joined a Triathlon Club, [Thames Turbo Triathlon](http://thamesturbo.com/). On our regular Saturday morning runs the coach would jog us over to the start of something called the [Bushy Park Time Trial](https://en.wikipedia.org/wiki/Bushy_Parkrun). Over 100 people would gather to run 5km. At the finish someone with a laptop would add your time to the list.
 
 Nine years later and [parkrun](http://www.parkrun.org.uk/) is a global movement with hundreds of events and over 1 million 5km runs completed. Somehow, I've only taken part in just over 60 runs to date, but it's now firmly part of my weekly routine. Parkrun tourism is responsible for my rediscovered enthusiasm.
