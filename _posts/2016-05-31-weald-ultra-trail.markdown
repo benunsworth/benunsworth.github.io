@@ -11,6 +11,7 @@ excerpt_separator: <!--excerpt-->
 I'm still not sure what to make of Sunday's race. It was equal measures awful and brilliant. It's the first time I've run over the marathon distance in the last couple of years. I've managed to stay on top of running since Brighton and got a couple of longer runs in, so hadn't excepted it to be quite so much of a struggle. <!--excerpt-->
 
 My excuses for a poor performance, in order of likely impact:
+
 * not fit enough
 * too heavy
 * course was very hilly
