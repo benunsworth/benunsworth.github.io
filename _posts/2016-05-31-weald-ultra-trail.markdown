@@ -11,11 +11,11 @@ excerpt_separator: <!--excerpt-->
 I'm still not sure what to make of Sunday's race. It was equal measures awful and brilliant. It's the first time I've run over the marathon distance in the last couple of years. I've managed to stay on top of running since Brighton and got a couple of longer runs in, so hadn't excepted it to be quite so much of a struggle. <!--excerpt-->
 
 My excuses for a poor performance, in order of likely impact:
-- not fit enough
-- too heavy
-- course was very hilly
-- ran parkrun too fast the day before
-- didn't eat enough for breakfast
+* not fit enough
+* too heavy
+* course was very hilly
+* ran parkrun too fast the day before
+* didn't eat enough for breakfast
 
 There's no escaping the fact that I need to run more. More often and with more long runs. My weekly average has been less than 50km, so I should not be surprised that it was tough to knock that distance out in one day. I'm also 85kgs, which is about 7-8kgs over an ideal race weight - my diet is shit right now, this is the consequence.
 
@@ -25,4 +25,4 @@ I used to be obsessive about preparation for long distance triathlon. Recently I
 
 Strava link for the race is posted below. Although not a great athletic performance, it's a stunning course and I look forward to racing it again next year. A benefit of going round so slowly is my legs feel pretty good already, so can get back into training for the next event.
 
-<iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/592125714/embed/d878b344cd0a887a00a15c88015472d511a5e05b'></iframe>
+<iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/592125714/embed/652ba7b846dabf6f2cd136a8e2ea93b31041098e'></iframe>
