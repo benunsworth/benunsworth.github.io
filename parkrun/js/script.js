@@ -29,4 +29,5 @@ L.marker([51.442078, -0.232215]).addTo(map).bindPopup("<b>Wimbledon Common</b><b
 L.marker([51.441168, -0.372075]).addTo(map).bindPopup("<b>Crane Park</b><br>PB: 22:01<br>Runs: 1");
 L.marker([51.365295, 1.041942]).addTo(map).bindPopup("<b>Whitstable</b><br>PB: 20:04<br>Runs: 1");
 L.marker([51.247383, -0.562062]).addTo(map).bindPopup("<b>Guildford</b><br>PB: 22:13<br>Runs: 1");
-L.marker([51.364807, -0.079973]).addTo(map).bindPopup("<b>Lloyd</b><br>PB: 22:04<br>Runs: 1")
+L.marker([51.364807, -0.079973]).addTo(map).bindPopup("<b>Lloyd</b><br>PB: 22:04<br>Runs: 1");
+L.marker([51.489403, -0.349889]).addTo(map).bindPopup("<b>Osterley</b><br>PB: 21:37<br>Runs: 1")
