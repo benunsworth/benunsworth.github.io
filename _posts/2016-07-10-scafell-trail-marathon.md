@@ -30,6 +30,20 @@ That soon changes as you hit the approach to Scafell. It's a continuous 6km clim
 
 # The second half
 
+After a bit of faffing about trying to navigate off the top, it was a pretty terrifying first few KM's over the boulder fields before hitting another runable trail. As the Garmin clicked past 28km's and already 4.5 hours in, I realised this was going to be a long afternoon. I had checked the trail map carefully and knew there was another signficant climb to come.
 
+![scafell-ascent](/assets/scafell-rocks.jpg){:class="img-responsive"}
+
+Just as I started to get into my running, I lost my footing. I managed to prevent a face-slam, but my trailing leg kicked a boulder so hard I thought I had broken all of my toes. After a bit of a swear and putting my foot in a stream I figured it was "only" my big toe that might be broken... so I carried on.
+
+![scafell-ascent](/assets/scafell-river.jpg){:class="img-responsive"}
+
+I was delighted to pass the checkpoint at the stretcher box. I was out of water and not too keen on filling from streams, so the friendly marshal gave me a refil.
+
+![scafell-ascent](/assets/scafell-stretcher.jpg){:class="img-responsive"}
+
+# The final stretch
+
+The course was longer and harder than expected. As you head into the final 5km you start to get stunning views across Derwent Water. It's a long drag back, through challenging singletrack with tired legs and mind. It's a real sense of achievement when you finish, having spent large parts of the day completely alone and on some of the wildest trails in the UK. I will be back next year.
 
 <iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/636941419/embed/a40d7573e1166e9198c226afbfb5a530c4a1053b'></iframe>
