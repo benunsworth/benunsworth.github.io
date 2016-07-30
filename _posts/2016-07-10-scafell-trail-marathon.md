@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Scafel Trail Marathon"
+title:  "Scafell Trail Marathon"
 date:   2016-07-10
 categories: running
 tags: running, ultra, training
