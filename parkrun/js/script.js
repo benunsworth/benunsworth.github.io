@@ -33,4 +33,5 @@ L.marker([51.364807, -0.079973]).addTo(map).bindPopup("<b>Lloyd</b><br>PB: 22:04
 L.marker([51.489403, -0.349889]).addTo(map).bindPopup("<b>Osterley</b><br>PB: 21:37<br>Runs: 1");
 L.marker([51.352253, -0.118720]).addTo(map).bindPopup("<b>Roundshaw Downs</b><br>PB: 26:07<br>Runs: 1");
 L.marker([51.464417, -0.306973]).addTo(map).bindPopup("<b>Old Deer Park</b><br>PB: 22:39<br>Runs: 1");
-L.marker([51.499405, -0.292253]).addTo(map).bindPopup("<b>Gunnersbury</b><br>PB: 21:17<br>Runs: 1")
+L.marker([51.499405, -0.292253]).addTo(map).bindPopup("<b>Gunnersbury</b><br>PB: 21:17<br>Runs: 1");
+L.marker([51.386539, 0.022874]).addTo(map).bindPopup("<b>Bromley</b><br>PB: 20:40<br>Runs: 1")
