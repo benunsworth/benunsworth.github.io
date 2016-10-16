@@ -9,7 +9,7 @@ var map = L.map('map').setView([51.4876, -0.2672], 11);
 
 // add markers and popups to the map
 L.marker([51.410992, -0.335791]).addTo(map).bindPopup("<b>Bushy Park</b><br>PB: 17:46<br>Runs: 28");
-L.marker([51.451962, -0.292886]).addTo(map).bindPopup("<b>Richmond Park</b><br>PB: 19:25<br>Runs: 17");
+L.marker([51.451962, -0.292886]).addTo(map).bindPopup("<b>Richmond Park</b><br>PB: 19:25<br>Runs: 18");
 L.marker([51.440762, -0.451523]).addTo(map).bindPopup("<b>Bedfont Lakes</b><br>PB: 17:51<br>Runs: 3");
 L.marker([51.433342, -0.146770]).addTo(map).bindPopup("<b>Tooting Common</b><br>PB: 19:25<br>Runs: 3");
 L.marker([51.472465, -0.218493]).addTo(map).bindPopup("<b>Fulham Palace</b><br>PB: 19:07<br>Runs: 1");
@@ -34,4 +34,6 @@ L.marker([51.489403, -0.349889]).addTo(map).bindPopup("<b>Osterley</b><br>PB: 21
 L.marker([51.352253, -0.118720]).addTo(map).bindPopup("<b>Roundshaw Downs</b><br>PB: 26:07<br>Runs: 1");
 L.marker([51.464417, -0.306973]).addTo(map).bindPopup("<b>Old Deer Park</b><br>PB: 22:39<br>Runs: 1");
 L.marker([51.499405, -0.292253]).addTo(map).bindPopup("<b>Gunnersbury</b><br>PB: 21:17<br>Runs: 1");
-L.marker([51.386539, 0.022874]).addTo(map).bindPopup("<b>Bromley</b><br>PB: 20:40<br>Runs: 1")
+L.marker([51.386539, 0.022874]).addTo(map).bindPopup("<b>Bromley</b><br>PB: 20:40<br>Runs: 1");
+L.marker([51.138190, -0.491510]).addTo(map).bindPopup("<b>Cranleigh</b><br>PB: 23:38<br>Runs: 1");
+L.marker([51.265798, -0.755847]).addTo(map).bindPopup("<b>Rushmoor</b><br>PB: 21:05<br>Runs: 1")
