@@ -37,4 +37,5 @@ L.marker([51.499405, -0.292253]).addTo(map).bindPopup("<b>Gunnersbury</b><br>PB:
 L.marker([51.386539, 0.022874]).addTo(map).bindPopup("<b>Bromley</b><br>PB: 20:40<br>Runs: 1");
 L.marker([51.138190, -0.491510]).addTo(map).bindPopup("<b>Cranleigh</b><br>PB: 23:38<br>Runs: 1");
 L.marker([51.265798, -0.755847]).addTo(map).bindPopup("<b>Rushmoor</b><br>PB: 21:05<br>Runs: 1");
-L.marker([51.311708, -0.556204]).addTo(map).bindPopup("<b>Woking</b><br>PB: 26:34<br>Runs: 1")
+L.marker([51.311708, -0.556204]).addTo(map).bindPopup("<b>Woking</b><br>PB: 26:34<br>Runs: 1");
+L.marker([51.449459, 0.075155]).addTo(map).bindPopup("<b>Greenwich</b><br>PB: 21:37<br>Runs: 1")
