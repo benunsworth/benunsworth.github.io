@@ -13,7 +13,7 @@ L.marker([51.451962, -0.292886]).addTo(map).bindPopup("<b>Richmond Park</b><br>P
 L.marker([51.440762, -0.451523]).addTo(map).bindPopup("<b>Bedfont Lakes</b><br>PB: 17:51<br>Runs: 3");
 L.marker([51.433342, -0.146770]).addTo(map).bindPopup("<b>Tooting Common</b><br>PB: 19:25<br>Runs: 4");
 L.marker([51.472465, -0.218493]).addTo(map).bindPopup("<b>Fulham Palace</b><br>PB: 19:07<br>Runs: 1");
-L.marker([51.443869, -0.079206]).addTo(map).bindPopup("<b>Dulwich</b><br>PB: 19:37<br>Runs: 2");
+L.marker([51.443869, -0.079206]).addTo(map).bindPopup("<b>Dulwich</b><br>PB: 19:37<br>Runs: 3");
 L.marker([50.971433, -1.374032]).addTo(map).bindPopup("<b>Eastleigh</b><br>PB: 23:40<br>Runs: 1");
 L.marker([51.484536, -0.081024]).addTo(map).bindPopup("<b>Burgess</b><br>PB: 19:40<br>Runs: 1");
 L.marker([50.792835, -3.455007]).addTo(map).bindPopup("<b>Killerton</b><br>PB: 20:54<br>Runs: 1");
