@@ -43,4 +43,4 @@ L.marker([51.540329, -0.547600]).addTo(map).bindPopup("<b>Black Park</b><br>PB: 
 L.marker([51.558598, -0.168185]).addTo(map).bindPopup("<b>Hampstead Heath</b><br>PB: 23:38<br>Runs: 1");
 L.marker([51.366808, -0.539078]).addTo(map).bindPopup("<b>Homewood</b><br>PB: 22:59<br>Runs: 1");
 L.marker([51.417952, -0.006042]).addTo(map).bindPopup("<b>Beckenham Place</b><br>PB: 20:00<br>Runs: 1");
-L.marker([51.455132, 0.113254]).addTo(map).bindPopup("<b>Bexley</b><br>PB: 24:34<br>Runs: 1")
+L.marker([51.455132, 0.113254]).addTo(map).bindPopup("<b>Bexley</b><br>PB: 24:34<br>Runs: 1");
