@@ -1,5 +1,5 @@
 // initialise the map and set coordinates centred on Chiswick to catch all my London parkruns
-var map = L.map('map').setView([52.4862, 1.8904], 3);
+var map = L.map('map').setView([52.4862, -1.8904], 3);
 
 // Add map tiles and attribution
   L.tileLayer('http://{s}.tiles.mapbox.com/v3/benunsworth.k7ao6p15/{z}/{x}/{y}.png', {
