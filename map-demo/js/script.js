@@ -18,3 +18,15 @@ new L.GPX(gpx, {
 }).on('loaded', function(e) {
   map.fitBounds(e.target.getBounds());
 }).addTo(map);
+
+var gpx2 = '/assets/parkrun.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(gpx2, {
+	async: true,
+	marker_options: {
+    	startIconUrl: 'pin-icon-start.png',
+    	endIconUrl: 'pin-icon-end.png',
+    	shadowUrl: 'pin-shadow.png'
+    }
+}).on('loaded', function(e) {
+  map.fitBounds(e.target.getBounds());
+}).addTo(map);
