@@ -8,6 +8,13 @@ var map = L.map('map').setView([51.4876, -0.2672], 9);
 	}).addTo(map);
 
 var gpx = '/assets/Long_slow_run.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(gpx, {async: true}).on('loaded', function(e) {
+new L.GPX(gpx, {
+	async: true,
+	marker_options: {
+    	startIconUrl: 'images/pin-icon-start.png',
+    	endIconUrl: 'images/pin-icon-end.png',
+    	shadowUrl: 'images/pin-shadow.png'
+    }
+}).on('loaded', function(e) {
   map.fitBounds(e.target.getBounds());
 }).addTo(map);
