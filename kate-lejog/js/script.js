@@ -29,7 +29,7 @@ var gpxs = [
   '/assets/LEJoG_day_seventeen.gpx',
   '/assets/LEJoG_day_eighteen.gpx',
   '/assets/LEJoG_day_nineteen.gpx',
-  '/assets/LEJoG_day_nineteen.gpx'
+  '/assets/LEJoG_day_twenty.gpx'
 ];
 
 // Iterate through the array and put the routes on the map, calling the icons for start and finish points
