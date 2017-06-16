@@ -28,6 +28,7 @@ var gpxs = [
   '/assets/LEJoG_day_sixteen.gpx',
   '/assets/LEJoG_day_seventeen.gpx',
   '/assets/LEJoG_day_eighteen.gpx',
+  '/assets/LEJoG_day_nineteen.gpx',
   '/assets/LEJoG_day_nineteen.gpx'
 ];
 
