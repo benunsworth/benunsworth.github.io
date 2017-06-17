@@ -57,4 +57,4 @@ L.marker([51.417952, -0.006042]).addTo(map).bindPopup("<b>Beckenham Place</b><br
 L.marker([51.168607, -0.838140]).addTo(map).bindPopup("<b>Alice Holt</b><br>PB: 22:42<br>Runs: 1");
 
 // adding the not done list
-L.marker([52.414546, -4.080401], {icon: notDoneIcon}).addTo(map).bindPopup("<br"Aberyswth"</br>)
+L.marker([52.414546, -4.080401], {icon: notDoneIcon}).addTo(map).bindPopup("<b>Aberyswth</br>")
