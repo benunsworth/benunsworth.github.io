@@ -7,16 +7,6 @@ var map = L.map('map').setView([51.4876, -0.2672], 9);
     	maxZoom: 18
 	}).addTo(map);
 
-// custom icons
-
-var notDoneIcon = L.icon({
-    iconUrl: 'not_done_icon.png',
-
-    iconSize:     [40, 40], // size of the icon
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
-
 // add markers and popups to the map
 L.marker([51.410992, -0.335791]).addTo(map).bindPopup("<b>Bushy Park</b><br>PB: 17:46<br>Runs: 28");
 L.marker([51.451962, -0.292886]).addTo(map).bindPopup("<b>Richmond Park</b><br>PB: 19:25<br>Runs: 23");
@@ -56,5 +46,4 @@ L.marker([51.366808, -0.539078]).addTo(map).bindPopup("<b>Homewood</b><br>PB: 22
 L.marker([51.417952, -0.006042]).addTo(map).bindPopup("<b>Beckenham Place</b><br>PB: 20:00<br>Runs: 1");
 L.marker([51.168607, -0.838140]).addTo(map).bindPopup("<b>Alice Holt</b><br>PB: 22:42<br>Runs: 1");
 
-// adding the not done list
-L.marker([52.414546, -4.080401], {icon: notDoneIcon}).addTo(map).bindPopup("<b>Aberyswth</br>")
+
