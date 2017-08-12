@@ -31,7 +31,24 @@ var gpxs = [
   '/assets/LEJoG_day_nineteen.gpx',
   '/assets/LEJoG_day_twenty.gpx',
   '/assets/LEJoG_day_twentyone.gpx',
-  '/assets/LEJoG_day_twentytwo.gpx'
+  '/assets/LEJoG_day_twentytwo.gpx',
+  '/assets/LEJoG_day_twentytwo_b.gpx',
+  '/assets/LEJoG_day_twentythree.gpx',
+  '/assets/LEJoG_day_twentyfour.gpx',
+  '/assets/LEJoG_day_twentyfive.gpx',
+  '/assets/LEJoG_day_twentysix.gpx',
+  '/assets/LEJoG_day_twentyseven.gpx',
+  '/assets/LEJoG_day_twentyeight_a.gpx',
+  '/assets/LEJoG_day_twentyeight_b.gpx',
+  '/assets/LEJoG_day_twentynine.gpx',
+  '/assets/LEJoG_day_thirty.gpx',
+  '/assets/LEJoG_day_thirtyone.gpx',
+  '/assets/LEJoG_day_thirtytwo.gpx',
+  '/assets/LEJoG_day_thirtythree.gpx',
+  '/assets/LEJoG_day_thirtyfour.gpx',
+  '/assets/LEJoG_day_thirtyfive.gpx',
+  '/assets/LEJoG_day_thirtysix.gpx',
+  '/assets/LEJoG_day_thirtyseven.gpx'
 ];
 
 // Iterate through the array and put the routes on the map, calling the icons for start and finish points
