@@ -46,6 +46,11 @@ L.marker([51.366808, -0.539078]).addTo(map).bindPopup("<b>Homewood</b><br>PB: 22
 L.marker([51.417952, -0.006042]).addTo(map).bindPopup("<b>Beckenham Place</b><br>PB: 20:00<br>Runs: 1");
 L.marker([51.168607, -0.838140]).addTo(map).bindPopup("<b>Alice Holt</b><br>PB: 22:42<br>Runs: 1");
 L.marker([51.396111, -0.059908]).addTo(map).bindPopup("<b>South Norwood</b><br>PB: 21:39<br>Runs: 2");
-L.marker([51.365283, 0.117224]).addTo(map).bindPopup("<b>Orpington</br><br>PB: 22:44<br>Runs: 1")
+L.marker([51.365283, 0.117224]).addTo(map).bindPopup("<b>Orpington</br><br>PB: 22:44<br>Runs: 1");
+L.marker([51.318485, -0.079549]).addTo(map).bindPopup("<b>Riddlesdown</><br>PB: 27:33<br>Runs: 1");
+L.marker([51.298622, -0.724851]).addTo(map).bindPopup("<b>Frimley Lodge</><br>PB: 22:50<br>Runs: 1");
+L.marker([51.234350, -0.208644]).addTo(map).bindPopup("<b>Reigate Priory</><br>PB: 30:35<br>Runs: 1");
+L.marker([51.097000, -0.175623]).addTo(map).bindPopup("<b>Tilgate</><br>PB: 30:38<br>Runs: 1")
+// for new rows L.marker([]).addTo(map).bindPopup("<b>event name</><br>PB: <br>Runs: 1")
 
 
