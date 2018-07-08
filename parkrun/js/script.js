@@ -47,14 +47,14 @@ L.marker([51.417952, -0.006042]).addTo(map).bindPopup("<b>Beckenham Place</b><br
 L.marker([51.168607, -0.838140]).addTo(map).bindPopup("<b>Alice Holt</b><br>PB: 22:42<br>Runs: 1");
 L.marker([51.396111, -0.059908]).addTo(map).bindPopup("<b>South Norwood</b><br>PB: 20:44<br>Runs: 8");
 L.marker([51.365283, 0.117224]).addTo(map).bindPopup("<b>Orpington</br><br>PB: 22:44<br>Runs: 1");
-L.marker([51.318485, -0.079549]).addTo(map).bindPopup("<b>Riddlesdown</><br>PB: 27:33<br>Runs: 1");
-L.marker([51.298622, -0.724851]).addTo(map).bindPopup("<b>Frimley Lodge</><br>PB: 22:50<br>Runs: 1");
-L.marker([51.234350, -0.208644]).addTo(map).bindPopup("<b>Reigate Priory</><br>PB: 30:35<br>Runs: 1");
-L.marker([51.097000, -0.175623]).addTo(map).bindPopup("<b>Tilgate</><br>PB: 30:38<br>Runs: 1");
-L.marker([50.810312, -0.364500]).addTo(map).bindPopup("<b>Worthing</><br>PB: 20:56<br>Runs: 1");
-L.marker([51.786634, -0.659599]).addTo(map).bindPopup("<b>Tring</><br>PB: 25:40<br>Runs: 1");
-L.marker([51.353118, 0.187147]).addTo(map).bindPopup("<b>Lullingstone</><br>PB: 26.43<br>Runs: 1");
-L.marker([51.307648, -0.184225]).addTo(map).bindPopup("<b>Banstead Woods</><br>PB: 26:26<br>Runs: 1")
+L.marker([51.318485, -0.079549]).addTo(map).bindPopup("<b>Riddlesdown</b><br>PB: 27:33<br>Runs: 1");
+L.marker([51.298622, -0.724851]).addTo(map).bindPopup("<b>Frimley Lodge</b><br>PB: 22:50<br>Runs: 1");
+L.marker([51.234350, -0.208644]).addTo(map).bindPopup("<b>Reigate Priory</b><br>PB: 30:35<br>Runs: 1");
+L.marker([51.097000, -0.175623]).addTo(map).bindPopup("<b>Tilgate</b><br>PB: 30:38<br>Runs: 1");
+L.marker([50.810312, -0.364500]).addTo(map).bindPopup("<b>Worthing</b><br>PB: 20:56<br>Runs: 1");
+L.marker([51.786634, -0.659599]).addTo(map).bindPopup("<b>Tring</b><br>PB: 25:40<br>Runs: 1");
+L.marker([51.353118, 0.187147]).addTo(map).bindPopup("<b>Lullingstone</b><br>PB: 26.43<br>Runs: 1");
+L.marker([51.307648, -0.184225]).addTo(map).bindPopup("<b>Banstead Woods</b><br>PB: 26:26<br>Runs: 1")
 // for new rows L.marker([]).addTo(map).bindPopup("<b>event name</><br>PB: <br>Runs: 1")
 
 
