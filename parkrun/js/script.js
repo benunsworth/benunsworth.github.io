@@ -14,7 +14,7 @@ L.marker([51.440762, -0.451523]).addTo(map).bindPopup("<b>Bedfont Lakes</b><br>P
 L.marker([51.455132, 0.113254]).addTo(map).bindPopup("<b>Bexley</b><br>PB: 24:34<br>Runs: 1");
 L.marker([51.433342, -0.146770]).addTo(map).bindPopup("<b>Tooting Common</b><br>PB: 19:25<br>Runs: 5");
 L.marker([51.472465, -0.218493]).addTo(map).bindPopup("<b>Fulham Palace</b><br>PB: 19:07<br>Runs: 1");
-L.marker([51.443869, -0.079206]).addTo(map).bindPopup("<b>Dulwich</b><br>PB: 19:37<br>Runs: 15");
+L.marker([51.443869, -0.079206]).addTo(map).bindPopup("<b>Dulwich</b><br>PB: 19:37<br>Runs: 16");
 L.marker([50.971433, -1.374032]).addTo(map).bindPopup("<b>Eastleigh</b><br>PB: 23:40<br>Runs: 1");
 L.marker([51.484536, -0.081024]).addTo(map).bindPopup("<b>Burgess</b><br>PB: 19:40<br>Runs: 3");
 L.marker([50.792835, -3.455007]).addTo(map).bindPopup("<b>Killerton</b><br>PB: 20:54<br>Runs: 1");
@@ -59,9 +59,12 @@ L.marker([51.685080, -4.206204]).addTo(map).bindPopup("<b>Llanelli Coast</b><br>
 L.marker([51.448240, -0.008630]).addTo(map).bindPopup("<b>Catford</b><br>PB: 22:32<br>Runs: 1");
 L.marker([52.935408, -1.504769]).addTo(map).bindPopup("<b>Markeaton</b><br>PB: 19:16<br>Runs: 1");
 L.marker([51.455873, -0.151331]).addTo(map).bindPopup("<b>Clapham Common</b><br>PB: 20:43<br>Runs: 1");
-L.marker([51.831620, -0.838394]).addTo(map).bindPopup("<b>Aylesbury</b><br>PB: 22:00 <br>Runs: 1");
+L.marker([51.831620, -0.838394]).addTo(map).bindPopup("<b>Aylesbury</b><br>PB: 21:08 <br>Runs: 3");
 L.marker([52.050110, -0.722984]).addTo(map).bindPopup("<b>Milton Keynes</b><br>PB: 23:11<br>Runs: 1"),
-L.marker([52.058640, -0.760168]).addTo(map).bindPopup("<b>Linford Wood</b><br>PB: 22:29<br>Runs: 1")
+L.marker([52.058640, -0.760168]).addTo(map).bindPopup("<b>Linford Wood</b><br>PB: 22:29<br>Runs: 1"),
+L.marker([51.947057, -0.674095]).addTo(map).bindPopup("<b>Rushmere</b><br>PB: 31:25<br>Runs: 1"),
+L.marker([51.901550, -0.510046]).addTo(map).bindPopup("<b>Houghton Hall</b><br>PB: 25:52<br>Runs: 1"),
+L.marker([52.262374, -1.157320]).addTo(map).bindPopup("<b>Daventry</b><br>PB: 23:22<br>Runs: 1")
 // for new rows L.marker([]).addTo(map).bindPopup("<b>event name</b><br>PB: <br>Runs: 1")
 
 
