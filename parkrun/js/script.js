@@ -64,7 +64,8 @@ L.marker([52.050110, -0.722984]).addTo(map).bindPopup("<b>Milton Keynes</b><br>P
 L.marker([52.058640, -0.760168]).addTo(map).bindPopup("<b>Linford Wood</b><br>PB: 22:29<br>Runs: 1"),
 L.marker([51.947057, -0.674095]).addTo(map).bindPopup("<b>Rushmere</b><br>PB: 31:25<br>Runs: 1"),
 L.marker([51.901550, -0.510046]).addTo(map).bindPopup("<b>Houghton Hall</b><br>PB: 25:52<br>Runs: 1"),
-L.marker([52.262374, -1.157320]).addTo(map).bindPopup("<b>Daventry</b><br>PB: 23:22<br>Runs: 1")
+L.marker([52.262374, -1.157320]).addTo(map).bindPopup("<b>Daventry</b><br>PB: 23:22<br>Runs: 1");
+L.marker([51.541272, -0.376711]).addTo(map).bindPopup("<b>Northala Fields</b><br>PB: 21:51<br>Runs: 1")
 // for new rows L.marker([]).addTo(map).bindPopup("<b>event name</b><br>PB: <br>Runs: 1")
 
 
