@@ -1,13 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Ben Unsworth</title>
-</head>
-<body>
+---
+layout: default
+title: Home
+---
 
-<h1>Ben Unsworth</h1>
-<p>I am a senior partner at <a href="https://www.tpximpact.com/">TPXimpact.</a> You can read a more detailed work and education history on <a href="https://www.linkedin.com/in/unsworthben/">LinkedIn</a>.</p>
-<p>My <a href="https://twitter.com/benunsworth">Twitter</a> account is dormant. Please come and find me on <a href="https://bsky.app/profile/benunsworth.co.uk">Bluesky</a>.</p>
+<div class="posts">
+  {% for post in paginator.posts %}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{ post.url | absolute_url }}">
+        {{ post.title }}
+      </a>
+    </h1>
 
-</body>
-</html>
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+
+    {{ post.content }}
+  </div>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="{{ paginator.next_page_path | absolute_url }}">Older</a>
+  {% else %}
+    <span class="pagination-item older">Older</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="pagination-item newer" href="{{ '/' | absolute_url }}">Newer</a>
+    {% else %}
+      <a class="pagination-item newer" href="{{ paginator.previous_page_path | absolute_url }}">Newer</a>
+    {% endif %}
+  {% else %}
+    <span class="pagination-item newer">Newer</span>
+  {% endif %}
+</div>
