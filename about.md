@@ -26,6 +26,12 @@ I've picked up a skateboard again, which has been a great way to meet some other
 </p>
 *Martin Robinson, The Standard, 2016*
 
+## Find me on the internet
+
+* [LinkedIn](https://www.linkedin.com/in/unsworthben/)
+* [Bluesky](https://bsky.app/profile/benunsworth.co.uk)
+* [parkrun](https://www.parkrun.org.uk/parkrunner/4418/all/) 
+
 ## This website
 
 I enjoy playing with static site generators as much as posting content. This has been built with:
