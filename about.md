@@ -28,7 +28,7 @@ I've picked up a skateboard again, which has been a great way to meet some other
 
 ## This website
 
-I enjoy playing with static site geernators as much as posting content. This has been built with:
+I enjoy playing with static site generators as much as posting content. This has been built with:
 
 * [Jekyll](https://jekyllrb.com)
 * Using the [Lanyon theme](https://github.com/poole/lanyon) built by MDO
