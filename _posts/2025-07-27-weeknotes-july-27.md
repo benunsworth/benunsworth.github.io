@@ -31,4 +31,4 @@ Doing all the jobs in the house to get it ready to sell. New job will mean movin
 
 ## What I've been inspired by
 
-Juksie and the associated buzz around the [power, peril and privilege of working in the open.](https://digitalbydefault.com/2025/07/03/camp-digital-2025-working-in-the-open/) It was enough to get me past playing with static site generators (you can read about this on the [about](https://benunsworth.co.uk/about/)page) and posting content.
+Juksie and the associated buzz around the [power, peril and privilege of working in the open.](https://digitalbydefault.com/2025/07/03/camp-digital-2025-working-in-the-open/) It was enough to get me past playing with static site generators (you can read about this on the [about](https://benunsworth.co.uk/about/) page) and posting content.
