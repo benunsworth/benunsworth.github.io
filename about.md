@@ -39,3 +39,5 @@ I enjoy playing with static site generators as much as posting content. This has
 * [Jekyll](https://jekyllrb.com)
 * Using the [Lanyon theme](https://github.com/poole/lanyon) built by MDO
 * Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
+* Comments and reactions are via [giscus](https://giscus.app/) powered by Github Discussions
+* Analytics by [fullres](https://fullres.com/google-analytics-alternative) which doesn't use cookies, cross site tracking or other persistent identifiers
