@@ -4,13 +4,73 @@
  <title>Ben Unsworth</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-07-28T17:40:16+01:00</updated>
+ <updated>2025-07-30T17:22:35+01:00</updated>
  <id></id>
  <author>
    <name>Ben Unsworth</name>
    <email>ben.unsworth1+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>LGR and getting the new council website right</title>
+   <link href="/2025/07/30/LGR-new-council-website/"/>
+   <updated>2025-07-30T00:00:00+01:00</updated>
+   <id>/2025/07/30/LGR-new-council-website</id>
+   <content type="html">&lt;p&gt;I’ve had versions of this post lurking in a drafts folder since 2021. Now that &lt;a href=&quot;https://www.gov.uk/government/collections/local-government-reorganisation-policy-and-programme-updates&quot;&gt;local government reorganisation is centre stage&lt;/a&gt; it might be helpful to share some reflections on my experience in Buckinghamshire back in 2019 and 2020.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gilest.org/notes/blog-brain.html&quot;&gt;a blog is you brain, over time, on the internet.&lt;/a&gt; &lt;em&gt;Giles Turnbull&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I insisted we talk about the work openly. That’s the only way it’s possible to write this post now, by re-reading dozens of &lt;a href=&quot;https://medium.com/buckinghamshire-digital-service/buckinghamshire-council-website-weeknote-1-290778ad440f&quot;&gt;weeknotes&lt;/a&gt; and watching back livestreams we hosted on YouTube (with a jerry-rigged camcorder, a macbook and &lt;a href=&quot;https://obsproject.com/&quot;&gt;OBS&lt;/a&gt;  - this was &lt;em&gt;just&lt;/em&gt; before the pandemic, so no universal video conferencing platform for staff).&lt;/p&gt;
+
+&lt;h2 id=&quot;make-the-argument&quot;&gt;Make the argument&lt;/h2&gt;
+
+&lt;p&gt;We were changing from five organisations into one. I was not the only person with an opinion about the new council’s digital services. I was the first person to articulate an approach in a slide deck and start pitching it to the decision makers.&lt;/p&gt;
+
+&lt;p&gt;The strategy was simple - use the new website as a trojan horse for user centred design, demonstrate how to get things done with agile teams, introduce open source tech and open ways of working.&lt;/p&gt;
+
+&lt;p&gt;Local Government re-organisation brings bigger problems to solve than building websites, but not many are as visible or will be accessed by so many residents.&lt;/p&gt;
+
+&lt;p&gt;My pitch centred on:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;consolidating all websites onto one trusted domain&lt;/li&gt;
+  &lt;li&gt;providing coherent services that are easy to discover and use&lt;/li&gt;
+  &lt;li&gt;making local government participative, open and accountable&lt;/li&gt;
+  &lt;li&gt;communicating with authority and trust&lt;/li&gt;
+  &lt;li&gt;making great digital and user-centred publishing easy&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;build-a-multi-disciplinary-team&quot;&gt;Build a multi-disciplinary team&lt;/h2&gt;
+
+&lt;p&gt;The uncertainty about future organisation design will make this difficult. I created a centralised digital delivery team with colleagues from across the five councils, before any decisions about future structures had been made. This might require spending some political capital and relying on people’s good nature.&lt;/p&gt;
+
+&lt;p&gt;This team was then augmented with specialists from digital and design agencies, whose support was tapered off after the new council was born.&lt;/p&gt;
+
+&lt;p&gt;However well things go, you’re very unlikely to be switching off all the old websites on vesting day. Having folks in the team who understand the new and the old is pretty critical.&lt;/p&gt;
+
+&lt;h2 id=&quot;use-localgov-drupal&quot;&gt;Use LocalGov Drupal&lt;/h2&gt;
+
+&lt;p&gt;I’m not one for particularly strong opinions on the internet. Content management systems are a solved problem and you have lots of choice in both open source and proprietary technology. Lots of them are very good. Lots of them will be fine for building new unitary council websites.&lt;/p&gt;
+
+&lt;p&gt;Back in 2019 I made the case for technology with a bias towards openness and speed of change. In a period of massive change we wanted to be the most flexible piece of the puzzle. This meant open source technology and complete control over what got built. Wagtail (an open source python based platform) was being used in the NHS and suited our needs. The nascent &lt;a href=&quot;https://www.localdigital.gov.uk/funded-project/improving-code-sharing-between-councils/&quot;&gt;LocalGov Drupal project was kicking off its discovery&lt;/a&gt;. Wagtail was the right choice at the time and is an excellent platform.&lt;/p&gt;
+
+&lt;p&gt;With 60 councils using &lt;a href=&quot;https://localgovdrupal.org/&quot;&gt;LocalGov Drupal&lt;/a&gt; and collaborating to improve outcomes and save money, it’s the right choice today. I would love to see more examples of public money funding public code in Local Government.&lt;/p&gt;
+
+&lt;h2 id=&quot;get-a-head-start-on-content&quot;&gt;Get a head start on content&lt;/h2&gt;
+
+&lt;p&gt;Between the five councils we had an incredible amount of content in pretty variable shape. Write down your content strategy (or steal &lt;a href=&quot;https://www.essex.gov.uk/essex-county-councils-design-and-patterns-library/content-strategy&quot;&gt;this one from Essex&lt;/a&gt; ) and get a content audit started early. The GOV.UK style guide is there to use and &lt;a href=&quot;https://docs.localgovdrupal.org/devs/general/content-types.html&quot;&gt;LocalGov Drupal has you covered with content types&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Establish clear governance and set very high standards. You’ve got a great opportunity to get strict control over publishing - start with a small centralised team. You will get some pushback. Clear, structure and helpful content is in everyone’s interest - &lt;a href=&quot;https://medium.com/@niacampbell/some-considerations-for-content-designers-in-a-genai-world-9d96cc53612f&quot;&gt;even the AI bots&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;work-in-the-open&quot;&gt;Work in the open&lt;/h2&gt;
+
+&lt;p&gt;The best digital teams in government work in the open. They don’t just share code, they also share their thinking, research, designs and things that didn’t go to plan.&lt;/p&gt;
+
+&lt;p&gt;It’s low cost and makes for better project management. Publish a weeknote, host show &amp;amp; tells, write longer blog posts. It will give your stakeholders a constant drip feed of information and let people flag issues early. People will spot dependancies and identify risks you’ve missed.&lt;/p&gt;
+
+&lt;p&gt;You’ll be making something that lives on the open internet. Decisions about how it’s funded will be published in council meeting minutes. Use this opportunity to take the next step and purposefully write and talk about the work. Get a copy of the &lt;a href=&quot;https://gilest.org/books/ach.html&quot;&gt;Agile Comms Handbook&lt;/a&gt; to guide the way.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Weeknotes 21st to 27th July</title>
