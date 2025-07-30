@@ -5,7 +5,7 @@ title: LGR and getting the new council website right
 
 I've had versions of this post lurking in a drafts folder since 2021. Now that [local government reorganisation is centre stage](https://www.gov.uk/government/collections/local-government-reorganisation-policy-and-programme-updates) it might be helpful to share some reflections on my experience in Buckinghamshire back in 2019 and 2020.
 
-[a blog is you brain, over time, on the internet.](https://gilest.org/notes/blog-brain.html) *Giles Turnbull*
+[a blog is your brain, over time, on the internet.](https://gilest.org/notes/blog-brain.html) *Giles Turnbull*
 
 I insisted we talk about the work openly. That's the only way it's possible to write this post now, by re-reading dozens of [weeknotes](https://medium.com/buckinghamshire-digital-service/buckinghamshire-council-website-weeknote-1-290778ad440f) and watching back livestreams we hosted on YouTube (with a jerry-rigged camcorder, a macbook and [OBS](https://obsproject.com/)  - this was *just* before the pandemic, so no universal video conferencing platform for staff).
 
