@@ -23,6 +23,15 @@ My pitch centred on:
 * making local government participative, open and accountable
 * communicating with authority and trust
 * making great digital and user-centred publishing easy
+* delivery by an agile team who working in the open
+
+## Get close to the LGR delivery team
+
+Landing safe and legal new councils on vesting day will be a clear and consistent message. There will be teams of people, led by a programme director and they'll mostly be working in waterfall and Prince2 project management methods.
+
+Running agile teams in waterfall programmes can be a recipe for trouble. Agree the outcomes you're working to and help people see how governance is built into every step. It's difficult to do this in abstract during the set up phase, but demoing working software at the end of the first sprint helps give senior people the assurance they need. Follow this with an early private beta well ahead of vesting day and you can give your colleagues one less thing to worry about.
+
+Agile accepts that the scope of the project will change over time. I can absolutely guarantee that will happen during LGR. Requirements changed, the scope changed, the budget changed. We had the new site live weeks ahead of time and avoided any big bang release.
 
 ## Build a multi-disciplinary team
 
