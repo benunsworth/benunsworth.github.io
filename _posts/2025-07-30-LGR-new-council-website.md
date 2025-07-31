@@ -23,7 +23,7 @@ My pitch centred on:
 * making local government participative, open and accountable
 * communicating with authority and trust
 * making great digital and user-centred publishing easy
-* delivery by an agile team who working in the open
+* delivery by an agile team who work in the open
 
 ## Get close to the LGR delivery team
 
