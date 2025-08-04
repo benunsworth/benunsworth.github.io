@@ -7,6 +7,8 @@ title: Weeknotes 28th July to 3rd August
 
 I've handed over almost everything now, so enjoyed a week with some space in the diary.
 
+I posted something on [local government reorganisation and building websites](https://benunsworth.co.uk/2025/07/30/LGR-new-council-website/), which a few folks have found useful.
+
 Had a couple of handover chats with the person who's holding the interim role for my new job. Helpful to get a headstart on this so we can make the most of the few days where we will overlap. I've come up with a useful set of questions that I will tidy up and share at some point.
 
 Had a shared leaving drinks with a colleague. Nice and low-key pub chats definitely my preffered style of send off.
@@ -27,7 +29,7 @@ I've fitted a now functioning downstairs WC and some double glazing panes being 
 
 [1923](https://www.imdb.com/title/tt18335752/) is streaming on Netflix. Plugging some gaps in the Yellowstone lore. Goodness me Montana is beautiful.
 
-[WWE Unreal](https://www.netflix.com/gb/title/81928921) also on Netflix. Very polished docu-series as part of WWE's move to Netflix. Feels like it spells the end of (*kayfabe*)[https://en.wikipedia.org/wiki/Kayfabe], but I am here for it. Not quite as good as Drive to Survive of TDF Unchained, but good background TV.
+[WWE Unreal](https://www.netflix.com/gb/title/81928921) also on Netflix. Very polished docu-series as part of WWE's move to Netflix. Feels like it spells the end of [kayfabe](https://en.wikipedia.org/wiki/Kayfabe), but I am here for it. Not quite as good as Drive to Survive of TDF Unchained, but good background TV.
 
 8 out of 10 cats does countdown. Bob Mortimer and Richard Ayoade as team captains should be unstoppable TV, but the first episode of the new series felt a bit strained. Hope it gets better.
 
