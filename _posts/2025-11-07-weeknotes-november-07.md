@@ -36,13 +36,13 @@ Three trips from Buckinghamshire to the offices in London this week meant nearly
 
 ## Things I've emailed myself
 
-Essex County Council's design and patterns library update on creating usable forms https://www.essex.gov.uk/essex-county-councils-design-and-patterns-library/step-by-step/how-create-usable-forms 
+[Essex County Council's design and patterns library update on creating usable forms](https://www.essex.gov.uk/essex-county-councils-design-and-patterns-library/step-by-step/how-create-usable-forms) 
 
-Dafydd Singleton's post on user needs for data standards https://www.tpximpact.com/knowledge-hub/blogs/design/user-needs-data-standards-websites
+[Dafydd Singleton's post on user needs for data standards](https://www.tpximpact.com/knowledge-hub/blogs/design/user-needs-data-standards-websites)
 
-Phil Rumen's post on sourcing the stack for local government technolgy (also linked above) https://technology.blog.gov.uk/2025/11/07/sourcing-the-stack-for-local-government-technology/
+[Phil Rumen's post on sourcing the stack for local government technolgy (also linked above)](https://technology.blog.gov.uk/2025/11/07/sourcing-the-stack-for-local-government-technology/)
 
-Sean Goedecke's post on seeing like a software company https://www.seangoedecke.com/seeing-like-a-software-company/
+[Sean Goedecke's post on seeing like a software company](https://www.seangoedecke.com/seeing-like-a-software-company/)
 
 The City of Seattle's AI [plan](https://www.seattle.gov/documents/Departments/Tech/Privacy/AI/City%20of%20Seattle%202025-2026%20AI%20Plan.pdf) and [Policy](https://seattle.gov/documents/Departments/Tech/Privacy/AI/Artificial_Intelligence_Policy-POL211%20-%20signed.pdf)
 
