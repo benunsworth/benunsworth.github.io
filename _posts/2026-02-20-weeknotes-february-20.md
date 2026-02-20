@@ -5,17 +5,17 @@ title: Friday 20 February
 
 This week felt like a compressed version of my first six months. Equal parts trying to deal with unpredictable things and making space for shaping the work that needs to happen. Highlights this week were:
 
-connecting with a previous colleague who’s leading work to change our social care case management system to meet the demands of client-level data reporting and the families first reforms
-checking in with the team who are replatforming Sutton’s website to LocalGov Drupal
-in person morning with my Sutton peers to talk about budgets and transformation
-a couple of impromptu chats about intranets and why they’re so often failing to meet user or organisational needs
+- connecting with a previous colleague who’s leading work to change our social care case management system to meet the demands of client-level data reporting and the families first reforms
+- checking in with the team who are replatforming Sutton’s website to LocalGov Drupal
+- in person morning with my Sutton peers to talk about budgets and transformation
+- a couple of impromptu chats about intranets and why they’re so often failing to meet user or organisational needs
 
 ## That AI article from last week
 
 [Matt Shumer wrote an article](https://shumer.dev/something-big-is-happening) that got a pretty significant cut-through. The internet did its thing and divided opinions into:
 
-An unreliable narrator has created a masterpiece of hype
-The singularity is here, we’re all about to be unemployed
+1. An unreliable narrator has created a masterpiece of hype
+2. The singularity is here, we’re all about to be unemployed
 
 As a professional fence sitter, I fluctuate wildly in opinion as I experiment and think about the implications. The recent advances are impressive, claude cowork feels like magic and the emerging practices for orchestration of multiple agents look like where the future’s headed.
 
