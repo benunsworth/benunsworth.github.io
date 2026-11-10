@@ -40,7 +40,7 @@ Dennis Vergne on the [history of relational public services](https://www.linkedi
 
 Again, late to the party. Des on Netflix with David Tennant as Scottish serial killer Dennis Nilsen.
 
-[Grayson Fletcher’s Helion part](​https://youtu.be/NV9kIeoAxR4?si=h2MvvQaHcVnnmD3f ), watching with my 9 year old on repeat
+[Grayson Fletcher’s Helion part](https://youtu.be/NV9kIeoAxR4?si=h2MvvQaHcVnnmD3f), watching with my 9 year old on repeat
 
 ## Listening
 
