@@ -12,9 +12,19 @@ title: Home
       </a>
     </h1>
 
-    <span class="post-date">{{ post.date | date_to_string }} &middot; {% include reading_time.html content=post.content %}</span>
+    <span class="post-date">
+      {{ post.date | date_to_string }} &middot; {% include reading_time.html content=post.content %}
+      {% include post_tags.html tags=post.tags %}
+    </span>
 
-    {{ post.content }}
+    {% assign paragraphs = post.content | split: '</p>' %}
+    {% if paragraphs.size > 2 %}
+      {{ paragraphs[0] }}</p>
+      {{ paragraphs[1] }}</p>
+      <p><a class="read-more" href="{{ post.url | absolute_url }}">Continue reading &rarr;</a></p>
+    {% else %}
+      {{ post.content }}
+    {% endif %}
   </div>
   {% endfor %}
 </div>
