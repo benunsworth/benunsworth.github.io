@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Friday 20 February
+tags: [weeknotes, local-government, ai, service-design]
 ---
 
 This week felt like a compressed version of my first six months. Equal parts trying to deal with unpredictable things and making space for shaping the work that needs to happen. Highlights this week were:

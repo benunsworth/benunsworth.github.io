@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Weeknote 19th December
+tags: [weeknotes, local-government, ai, technology]
 ---
 
 A bit of a wrap-up week before the holidays, the highlights were:

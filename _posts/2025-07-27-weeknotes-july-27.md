@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Weeknotes 21st to 27th July
+tags: [weeknotes, open-working]
 ---
 
 Jukesie's [Nostalgia Act Era](https://digitalbydefault.com/2025/06/15/my-nostalgia-act-era/) has been a good kick up the backside for my stop-start relationship with blogging. Or at least personal blogging and writing things down on the internet under my own website.

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Halloweeknote
+tags: [weeknotes, local-government, ai, service-design]
 ---
 
 It has been almost three months since my last weeknote. Habits are hard to form and easy to break. 

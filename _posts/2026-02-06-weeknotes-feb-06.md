@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Friday 6 February
+tags: [weeknotes, ai, service-design]
 ---
 
 ## Things I emailed myself

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Weeknote 12th December
+tags: [weeknotes, local-government, service-design, technology]
 ---
 
 ## Last week

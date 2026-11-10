@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Weeknote first half of January
+tags: [weeknotes, local-government, ai, service-design, technology]
 ---
 
 Bit late, but happy new year.

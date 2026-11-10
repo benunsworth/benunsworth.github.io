@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Weeknotes 2nd to 7th November
+tags: [weeknotes, local-government, ai, leadership]
 ---
 
 ## Jevons’ Paradox and Baumol’s Costs Disease

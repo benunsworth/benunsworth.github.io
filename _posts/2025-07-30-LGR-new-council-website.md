@@ -1,6 +1,7 @@
 ---
 layout: post
 title: LGR and getting the new council website right
+tags: [local-government, service-design, open-working, leadership]
 ---
 
 I've had versions of this post lurking in a drafts folder since 2021. Now that [local government reorganisation is centre stage](https://www.gov.uk/government/collections/local-government-reorganisation-policy-and-programme-updates) it might be helpful to share some reflections on my experience in Buckinghamshire back in 2019 and 2020.

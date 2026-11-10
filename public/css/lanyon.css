@@ -556,3 +556,120 @@ a.pagination-item:hover {
 .layout-reverse.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
   box-shadow: -.25rem 0 .5rem rgba(0,0,0,.1);
 }
+
+
+/*
+ * Tags, Excerpts, Archive, Search & Post Navigation
+ */
+
+.post-tags {
+  display: inline-block;
+  margin-left: .25rem;
+}
+
+.post-tag {
+  display: inline-block;
+  padding: .1rem .45rem;
+  margin-right: .25rem;
+  margin-bottom: .25rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .75rem;
+  color: #505050;
+  background-color: #f3f3f3;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.post-tag:hover {
+  color: #fff;
+  background-color: #268bd2;
+  text-decoration: none;
+}
+
+.tags-cloud {
+  margin-bottom: 2rem;
+}
+
+.tag-section {
+  margin-bottom: 2rem;
+}
+
+.read-more {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+/* Archive & Tag lists */
+.archive-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.archive-item {
+  margin-bottom: .6rem;
+}
+
+.archive-meta {
+  display: inline-block;
+  margin-left: .4rem;
+  color: #9a9a9a;
+}
+
+/* Client-side search on Archive page */
+.search-box {
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: .6rem .8rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: #303030;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #268bd2;
+}
+
+.search-snippet {
+  margin-top: .2rem;
+  margin-bottom: .5rem;
+  font-size: .85rem;
+  color: #666;
+}
+
+/* Chronological Post Navigation (Prev / Next) */
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-top: 1px solid #eee;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .9rem;
+}
+
+.post-nav-item {
+  max-width: 48%;
+}
+
+.post-nav-next {
+  margin-left: auto;
+  text-align: right;
+}
+
+.post-nav-label {
+  display: block;
+  font-size: .75rem;
+  color: #9a9a9a;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+

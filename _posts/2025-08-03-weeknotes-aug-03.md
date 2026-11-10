@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Weeknotes 28th July to 3rd August
+tags: [weeknotes, local-government]
 ---
 
 ## What I've been doing

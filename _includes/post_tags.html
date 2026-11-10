@@ -1,0 +1,8 @@
+{%- assign tags_list = include.tags | default: page.tags -%}
+{%- if tags_list and tags_list.size > 0 -%}
+<span class="post-tags">
+  {%- for tag in tags_list -%}
+    <a class="post-tag" href="{{ '/tags/' | absolute_url }}#{{ tag | slugify }}">#{{ tag }}</a>
+  {%- endfor -%}
+</span>
+{%- endif -%}

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Remembering Casserole
+tags: [weeknotes, local-government, service-design, leadership]
 ---
 
 ## Remembering Casserole
