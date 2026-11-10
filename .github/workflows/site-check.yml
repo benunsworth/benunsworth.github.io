@@ -16,13 +16,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build site with official GitHub Pages image
-        run: |
-          docker run --rm \
-            -v "$PWD:/srv/jekyll" \
-            -w /srv/jekyll \
-            ghcr.io/actions/jekyll-build-pages:v1.0.13 \
-            jekyll build --strict_front_matter
+      - name: Build site with official GitHub Pages action
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
 
       - name: Validate JSON search index & XML feeds
         run: |
