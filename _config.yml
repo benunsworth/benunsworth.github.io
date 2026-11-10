@@ -13,9 +13,17 @@ author:
   url:               https://benunsworth.co.uk
   email:             ben.unsworth1+blog@gmail.com
 
+social:
+  name:              Ben Unsworth
+  links:
+    - https://www.linkedin.com/in/unsworthben/
+    - https://bsky.app/profile/benunsworth.co.uk
+
 # Gems
 plugins:
   - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Custom vars
 version:             1.1.0
