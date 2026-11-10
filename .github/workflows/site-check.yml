@@ -1,0 +1,98 @@
+name: Site Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Build & Validate Site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build site with official GitHub Pages image
+        run: |
+          docker run --rm \
+            -v "$PWD:/srv/jekyll" \
+            -w /srv/jekyll \
+            ghcr.io/actions/jekyll-build-pages:v1.0.13 \
+            jekyll build --strict_front_matter
+
+      - name: Validate JSON search index & XML feeds
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libxml2-utils jq
+          jq empty _site/search.json
+          xmllint --noout _site/atom.xml _site/feed.xml _site/sitemap.xml
+
+      - name: Verify internal links and local assets
+        run: |
+          python3 - << 'EOF'
+          import os, sys
+          from html.parser import HTMLParser
+          from urllib.parse import urlparse, unquote
+
+          SITE_DIR = "_site"
+          SITE_ORIGIN = "https://benunsworth.co.uk"
+
+          class LinkParser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.refs = []
+              def handle_starttag(self, tag, attrs):
+                  attr_dict = dict(attrs)
+                  for key in ("href", "src"):
+                      if key in attr_dict and attr_dict[key]:
+                          self.refs.append((tag, key, attr_dict[key]))
+
+          errors = []
+          html_files = []
+          for root, _, files in os.walk(SITE_DIR):
+              for f in files:
+                  if f.endswith(".html"):
+                      html_files.append(os.path.join(root, f))
+
+          for html_file in sorted(html_files):
+              parser = LinkParser()
+              with open(html_file, "r", encoding="utf-8") as fh:
+                  parser.feed(fh.read())
+
+              for tag, attr, ref in parser.refs:
+                  if ref.startswith(("#", "mailto:", "tel:", "javascript:", "data:")):
+                      continue
+                  if ref.startswith(SITE_ORIGIN):
+                      path = ref[len(SITE_ORIGIN):] or "/"
+                  elif ref.startswith(("http://", "https://", "//")):
+                      continue
+                  else:
+                      path = ref
+
+                  parsed = urlparse(path)
+                  clean_path = unquote(parsed.path)
+                  if not clean_path:
+                      continue
+
+                  if clean_path.startswith("/"):
+                      target = os.path.join(SITE_DIR, clean_path.lstrip("/"))
+                  else:
+                      target = os.path.join(os.path.dirname(html_file), clean_path)
+
+                  if os.path.isdir(target):
+                      target = os.path.join(target, "index.html")
+
+                  if not os.path.isfile(target) and not os.path.isfile(target + ".html"):
+                      errors.append(f"{html_file}: broken {attr}='{ref}' -> missing {target}")
+
+          if errors:
+              print("Broken internal links or assets detected:")
+              for e in errors:
+                  print("  -", e)
+              sys.exit(1)
+
+          print(f"Verified {len(html_files)} HTML pages: all internal links and local assets are valid.")
+          EOF
