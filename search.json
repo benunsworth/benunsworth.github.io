@@ -1,0 +1,15 @@
+---
+layout: null
+---
+[
+  {%- for post in site.posts -%}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | absolute_url | jsonify }},
+    "date": {{ post.date | date_to_string | jsonify }},
+    "reading_time": "{% include reading_time.html content=post.content %}",
+    "tags": {{ post.tags | jsonify }},
+    "content": {{ post.content | strip_html | normalize_whitespace | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+  {%- endfor -%}
+]
