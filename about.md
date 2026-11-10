@@ -4,14 +4,14 @@ title: About
 ---
 
 <p class="message">
-  Hello. I'm Ben, a digital leader, working for TPXimpact. This is my corner of the internet, where I will post things about work and life.
+  Hello. I'm Ben, a digital leader in local government, working at Kingston and Sutton councils. This is my corner of the internet, where I post things about work and life.
 </p>
 
 ## Work
 
 I've spent my [non-linear career](https://www.forbes.com/sites/carolinecastrillon/2025/03/18/why-non-linear-careers-are-the-future-of-work/) with teams building great products and services in the public sector.
 
-Most recently I've been doing this with TPXimpact and my clients at MHCLG and the MOJ. Before that I've had a wonderful time creating the conditions for user-centred design and digital delivery at Essex, Buckinghamshire, FutureGov, the Home Office and a few others.
+I currently lead digital and technology for Kingston and Sutton councils. Before that, I worked at TPXimpact with clients at MHCLG and the MOJ, and spent a wonderful time creating the conditions for user-centred design and digital delivery at Essex, Buckinghamshire, FutureGov, the Home Office and a few others.
 
 ## Life
 
