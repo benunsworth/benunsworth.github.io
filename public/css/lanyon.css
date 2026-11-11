@@ -29,6 +29,34 @@
 
 
 /*
+ * Design Tokens — Inky Flexoki & Terracotta
+ */
+
+:root {
+  --color-bg: #fffcf0;
+  --color-surface: #f2f0e5;
+  --color-surface-hover: #e6e4d9;
+  --color-text: #100f0f;
+  --color-muted: #6f6e69;
+  --color-border: #dad8ce;
+  --color-border-subtle: #e6e4d9;
+  --color-accent: #bc5215;
+  --color-accent-hover: #8b3c0e;
+  --color-accent-soft: #f9ece4;
+  --color-star-empty: #d5d2c6;
+  --color-rough-text: #8a6800;
+  --color-rough-bg: #faefb5;
+  --color-rough-border: #d9c36a;
+  --color-progress-text: #9d3f0c;
+  --color-progress-bg: #f9e2d2;
+  --color-progress-border: #e3af8e;
+  --color-settled-text: #4c6205;
+  --color-settled-bg: #e5efc1;
+  --color-settled-border: #b8cf72;
+}
+
+
+/*
  * Global resets
  *
  * Update the foundational and global aspects of the page.
@@ -44,10 +72,42 @@ html {
   font-family: "PT Serif", Georgia, "Times New Roman", serif;
 }
 
+body {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  color: #313131;
+  font-weight: 700;
+  color: var(--color-text);
   letter-spacing: -.025rem;
 }
 
@@ -55,9 +115,7 @@ h1, h2, h3, h4, h5, h6 {
 /*
  * Wrapper
  *
- * The wrapper is used to position site content when the sidebar is toggled. We
- * use an outter wrap to position the sidebar without interferring with the
- * regular page content.
+ * The wrapper is used to position site content.
  */
 
 .wrap {
@@ -69,58 +127,112 @@ h1, h2, h3, h4, h5, h6 {
 /*
  * Container
  *
- * Center the page content.
+ * Center the page content. Keep .container at 38rem max-width for comfortable
+ * article reading, and .container--wide at 54rem for the Digital Garden grid.
  */
 
 .container {
-  max-width: 28rem;
+  max-width: 38rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
-@media (min-width: 38em) {
-  .container {
-    max-width: 32rem;
-  }
-}
-@media (min-width: 56em) {
-  .container {
-    max-width: 38rem;
-  }
+
+.container--wide {
+  max-width: 54rem;
 }
 
 
 /*
  * Masthead
  *
- * Super small header above the content for site name and short description.
+ * Visible horizontal header above the content for site name, tagline, and
+ * primary navigation.
  */
 
 .masthead {
-  padding-top:    1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 3rem;
-  border-bottom: 1px solid #eee;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
 }
+
+.masthead-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .6rem 1.5rem;
+}
+
+.masthead-brand {
+  min-width: 0;
+}
+
 .masthead-title {
   margin-top: 0;
   margin-bottom: 0;
-  color: #505050;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-text);
+  letter-spacing: -.02rem;
 }
+
 .masthead-title a {
-  color: #505050;
+  color: var(--color-text);
+  text-decoration: none;
 }
+
+.masthead-title a:hover,
+.masthead-title a:focus {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
 .masthead-title small {
-  font-size: 75%;
+  display: inline-block;
+  margin-left: .35rem;
+  font-size: .85rem;
   font-weight: 400;
-  color: #c0c0c0;
+  color: var(--color-muted);
   letter-spacing: 0;
 }
 
-@media (max-width: 48em) {
-  .masthead-title {
-    text-align: center;
-  }
-  .masthead-title small {
-    display: none;
-  }
+.masthead-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem .9rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .9rem;
+}
+
+.masthead-nav-link {
+  display: inline-block;
+  padding: .2rem .05rem;
+  color: var(--color-muted);
+  font-weight: 400;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+
+.masthead-nav-link:hover,
+.masthead-nav-link:focus {
+  color: var(--color-accent-hover);
+  text-decoration: none;
+  border-bottom-color: var(--color-border);
+}
+
+.masthead-nav-link.active,
+.masthead-nav-link[aria-current="page"] {
+  color: var(--color-text);
+  font-weight: 700;
+  border-bottom-color: var(--color-accent);
 }
 
 
@@ -311,7 +423,12 @@ a.sidebar-nav-item:focus {
 .page-title,
 .post-title,
 .post-title a {
-  color: #303030;
+  color: var(--color-text);
+}
+.post-title a:hover,
+.post-title a:focus {
+  color: var(--color-accent);
+  text-decoration: none;
 }
 .page-title,
 .post-title {
@@ -323,14 +440,14 @@ a.sidebar-nav-item:focus {
   display: block;
   margin-top: -.5rem;
   margin-bottom: 1rem;
-  color: #9a9a9a;
+  color: var(--color-muted);
 }
 
 /* Related posts */
 .related {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--color-border);
 }
 .related-posts {
   padding-left: 0;
@@ -341,10 +458,10 @@ a.sidebar-nav-item:focus {
 }
 .related-posts li small {
   font-size: 75%;
-  color: #999;
+  color: var(--color-muted);
 }
 .related-posts li a:hover {
-  color: #268bd2;
+  color: var(--color-accent-hover);
   text-decoration: none;
 }
 .related-posts li a:hover small {
@@ -364,7 +481,7 @@ a.sidebar-nav-item:focus {
   margin-left: -1rem;
   margin-right: -1rem;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  color: #ccc;
+  color: var(--color-muted);
   text-align: center;
 }
 
@@ -372,7 +489,7 @@ a.sidebar-nav-item:focus {
 .pagination-item {
   display: block;
   padding: 1rem;
-  border: 1px solid #eee;
+  border: 1px solid var(--color-border);
 }
 .pagination-item:first-child {
   margin-bottom: -1px;
@@ -380,7 +497,7 @@ a.sidebar-nav-item:focus {
 
 /* Only provide a hover state for linked pagination items */
 a.pagination-item:hover {
-  background-color: #f5f5f5;
+  background-color: var(--color-surface);
 }
 
 @media (min-width: 30em) {
@@ -574,15 +691,18 @@ a.pagination-item:hover {
   margin-bottom: .25rem;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: .75rem;
-  color: #505050;
-  background-color: #f3f3f3;
+  color: var(--color-muted);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
   border-radius: 3px;
   text-decoration: none;
 }
 
-.post-tag:hover {
+.post-tag:hover,
+.post-tag:focus {
   color: #fff;
-  background-color: #268bd2;
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
   text-decoration: none;
 }
 
@@ -613,7 +733,7 @@ a.pagination-item:hover {
 .archive-meta {
   display: inline-block;
   margin-left: .4rem;
-  color: #9a9a9a;
+  color: var(--color-muted);
 }
 
 /* Client-side search on Archive page */
@@ -626,22 +746,23 @@ a.pagination-item:hover {
   padding: .6rem .8rem;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: 1rem;
-  color: #303030;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
 }
 
 .search-input:focus {
-  outline: none;
-  border-color: #268bd2;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 0;
+  border-color: var(--color-accent);
 }
 
 .search-snippet {
   margin-top: .2rem;
   margin-bottom: .5rem;
   font-size: .85rem;
-  color: #666;
+  color: var(--color-muted);
 }
 
 /* Chronological Post Navigation (Prev / Next) */
@@ -651,7 +772,7 @@ a.pagination-item:hover {
   gap: 1rem;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--color-border);
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: .9rem;
 }
@@ -668,7 +789,7 @@ a.pagination-item:hover {
 .post-nav-label {
   display: block;
   font-size: .75rem;
-  color: #9a9a9a;
+  color: var(--color-muted);
   text-transform: uppercase;
   letter-spacing: .04em;
 }

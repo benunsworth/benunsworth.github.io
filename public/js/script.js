@@ -3,15 +3,17 @@
   var sidebar = document.querySelector('#sidebar');
   var checkbox = document.querySelector('#sidebar-checkbox');
 
-  document.addEventListener('click', function(e) {
-    var target = e.target;
+  if (checkbox && sidebar) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
 
-    if(!checkbox.checked ||
-       sidebar.contains(target) ||
-       (target === checkbox || target === toggle)) return;
+      if(!checkbox.checked ||
+         sidebar.contains(target) ||
+         (target === checkbox || target === toggle)) return;
 
-    checkbox.checked = false;
-  }, false);
+      checkbox.checked = false;
+    }, false);
+  }
 
   var searchInput = document.getElementById('search-input');
   var searchResults = document.getElementById('search-results');
