@@ -49,12 +49,15 @@ All features are implemented using whitelisted GitHub Pages plugins, pure Liquid
 
 ---
 
-## Automated Quality Checks
+## Automated Quality Checks & Agent Standards
+
+ Architectural, design, accessibility, and security rules for AI coding assistants are documented in [`AGENTS.md`](AGENTS.md).
 
 Every push and pull request to `main` runs the [**Site Check** workflow](.github/workflows/site-check.yml), which automatically:
-1. Builds the site using the official `actions/jekyll-build-pages` image.
-2. Validates that `_site/search.json` is valid JSON and `_site/atom.xml`, `_site/feed.xml`, and `_site/sitemap.xml` are well-formed XML.
-3. Checks every generated HTML page to ensure all internal links and local assets resolve without 404s.
+1. Validates post front matter schema (`title`, `type`, `status`, `updated`).
+2. Builds the site using the official `actions/jekyll-build-pages` image.
+3. Validates that `_site/search.json` is valid JSON and `_site/atom.xml`, `_site/feed.xml`, and `_site/sitemap.xml` are well-formed XML.
+4. Checks every generated HTML page to ensure all internal links, `#anchor` IDs, local assets, and image `alt` attributes are valid.
 
 ---
 

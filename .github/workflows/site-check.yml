@@ -16,6 +16,58 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Validate post front matter schema
+        run: |
+          python3 - << 'EOF'
+          import glob, re, sys
+
+          ALLOWED_TYPES = {"weeknote", "note", "essay", "reading"}
+          ALLOWED_STATUSES = {"rough", "in-progress", "settled"}
+          DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+          errors = []
+          post_files = sorted(glob.glob("_posts/*.md"))
+          for path in post_files:
+              with open(path, "r", encoding="utf-8") as fh:
+                  text = fh.read()
+              if not text.startswith("---\n"):
+                  errors.append(f"{path}: missing opening '---' front matter delimiter")
+                  continue
+              parts = text.split("\n---\n", 1)
+              if len(parts) < 2:
+                  parts = text.split("\n---", 1)
+              if len(parts) < 2:
+                  errors.append(f"{path}: missing closing '---' front matter delimiter")
+                  continue
+
+              fm_lines = parts[0].splitlines()[1:]
+              fm = {}
+              for line in fm_lines:
+                  if ":" in line and not line.lstrip().startswith("#") and not line.startswith((" ", "\t", "-")):
+                      k, v = line.split(":", 1)
+                      fm[k.strip()] = v.strip().strip("'\"")
+
+              if not fm.get("title"):
+                  errors.append(f"{path}: missing required 'title' in front matter")
+
+              if "type" in fm and fm["type"] and fm["type"] not in ALLOWED_TYPES:
+                  errors.append(f"{path}: invalid type '{fm['type']}' (allowed: {sorted(ALLOWED_TYPES)})")
+
+              if "status" in fm and fm["status"] and fm["status"] not in ALLOWED_STATUSES:
+                  errors.append(f"{path}: invalid status '{fm['status']}' (allowed: {sorted(ALLOWED_STATUSES)})")
+
+              if "updated" in fm and fm["updated"] and not DATE_RE.match(fm["updated"]):
+                  errors.append(f"{path}: invalid updated date '{fm['updated']}' (expected YYYY-MM-DD)")
+
+          if errors:
+              print("Front matter schema errors detected:")
+              for e in errors:
+                  print("  -", e)
+              sys.exit(1)
+
+          print(f"Validated front matter schema across {len(post_files)} posts.")
+          EOF
+
       - name: Build site with official GitHub Pages action
         uses: actions/jekyll-build-pages@v1
         with:
@@ -28,7 +80,7 @@ jobs:
           jq empty _site/search.json
           xmllint --noout _site/atom.xml _site/feed.xml _site/sitemap.xml
 
-      - name: Verify internal links and local assets
+      - name: Verify internal links, anchor IDs, local assets & image alt attributes
         run: |
           python3 - << 'EOF'
           import os, sys
@@ -38,15 +90,23 @@ jobs:
           SITE_DIR = "_site"
           SITE_ORIGIN = "https://benunsworth.co.uk"
 
-          class LinkParser(HTMLParser):
+          class PageInspector(HTMLParser):
               def __init__(self):
                   super().__init__()
                   self.refs = []
+                  self.ids = set()
+                  self.missing_alt_imgs = []
               def handle_starttag(self, tag, attrs):
                   attr_dict = dict(attrs)
+                  if "id" in attr_dict and attr_dict["id"]:
+                      self.ids.add(attr_dict["id"])
+                  if "name" in attr_dict and attr_dict["name"]:
+                      self.ids.add(attr_dict["name"])
                   for key in ("href", "src"):
                       if key in attr_dict and attr_dict[key]:
                           self.refs.append((tag, key, attr_dict[key]))
+                  if tag == "img" and "alt" not in attr_dict:
+                      self.missing_alt_imgs.append(attr_dict.get("src", "<unknown>"))
 
           errors = []
           html_files = []
@@ -55,13 +115,23 @@ jobs:
                   if f.endswith(".html"):
                       html_files.append(os.path.join(root, f))
 
+          page_data = {}
           for html_file in sorted(html_files):
-              parser = LinkParser()
+              inspector = PageInspector()
               with open(html_file, "r", encoding="utf-8") as fh:
-                  parser.feed(fh.read())
+                  inspector.feed(fh.read())
+              page_data[os.path.normpath(html_file)] = inspector
+              for src in inspector.missing_alt_imgs:
+                  errors.append(f"{html_file}: <img> missing required alt attribute (src='{src}')")
 
-              for tag, attr, ref in parser.refs:
-                  if ref.startswith(("#", "mailto:", "tel:", "javascript:", "data:")):
+          for html_file, inspector in page_data.items():
+              for tag, attr, ref in inspector.refs:
+                  if ref.startswith(("mailto:", "tel:", "javascript:", "data:")):
+                      continue
+                  if ref.startswith("#"):
+                      frag = unquote(ref[1:])
+                      if frag and frag not in inspector.ids:
+                          errors.append(f"{html_file}: broken anchor href='{ref}' (id '{frag}' not found on page)")
                       continue
                   if ref.startswith(SITE_ORIGIN):
                       path = ref[len(SITE_ORIGIN):] or "/"
@@ -72,6 +142,7 @@ jobs:
 
                   parsed = urlparse(path)
                   clean_path = unquote(parsed.path)
+                  fragment = unquote(parsed.fragment)
                   if not clean_path:
                       continue
 
@@ -82,15 +153,21 @@ jobs:
 
                   if os.path.isdir(target):
                       target = os.path.join(target, "index.html")
+                  elif not os.path.isfile(target) and os.path.isfile(target + ".html"):
+                      target = target + ".html"
 
-                  if not os.path.isfile(target) and not os.path.isfile(target + ".html"):
-                      errors.append(f"{html_file}: broken {attr}='{ref}' -> missing {target}")
+                  norm_target = os.path.normpath(target)
+                  if not os.path.isfile(norm_target):
+                      errors.append(f"{html_file}: broken {attr}='{ref}' -> missing {norm_target}")
+                  elif fragment and norm_target in page_data:
+                      if fragment not in page_data[norm_target].ids:
+                          errors.append(f"{html_file}: broken anchor '{ref}' -> id '{fragment}' not found in {norm_target}")
 
           if errors:
-              print("Broken internal links or assets detected:")
+              print("Validation errors detected:")
               for e in errors:
                   print("  -", e)
               sys.exit(1)
 
-          print(f"Verified {len(html_files)} HTML pages: all internal links and local assets are valid.")
+          print(f"Verified {len(html_files)} HTML pages: all internal links, anchor IDs, assets, and image alt attributes are valid.")
           EOF
