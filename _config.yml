@@ -29,3 +29,21 @@ plugins:
 # Custom vars
 version:             1.1.0
 google_analytics_id: G-0J73RYL13Y
+
+# Default front matter for posts
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      type: "note"
+
+# Exclude repository metadata from published _site
+exclude:
+  - AGENTS.md
+  - README.md
+  - LICENSE.md
+  - Gemfile
+  - Gemfile.lock
+
