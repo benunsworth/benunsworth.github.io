@@ -1,0 +1,65 @@
+{%- assign item = include.post | default: page -%}
+{%- assign raw_type = item.type | downcase | strip -%}
+{%- if raw_type == "reading" -%}
+  {%- assign resolved_type = "review" -%}
+{%- elsif raw_type == "essay" or raw_type == "note" or raw_type == "review" or raw_type == "weeknote" -%}
+  {%- assign resolved_type = raw_type -%}
+{%- elsif item.media and item.media != "" -%}
+  {%- assign resolved_type = "review" -%}
+{%- elsif item.rating and item.rating != "" -%}
+  {%- assign resolved_type = "review" -%}
+{%- elsif item.tags contains "weeknotes" -%}
+  {%- assign resolved_type = "weeknote" -%}
+{%- else -%}
+  {%- assign resolved_type = "note" -%}
+{%- endif -%}
+
+{%- case resolved_type -%}
+  {%- when "essay" -%}
+    {%- assign stream_label = "Essay" -%}
+  {%- when "weeknote" -%}
+    {%- assign stream_label = "Weeknote" -%}
+  {%- when "review" -%}
+    {%- assign stream_label = "Review" -%}
+  {%- else -%}
+    {%- assign stream_label = "Note" -%}
+{%- endcase -%}
+
+{%- assign raw_media = item.media | downcase | strip -%}
+{%- assign media_label = "" -%}
+{%- case raw_media -%}
+  {%- when "book" -%}
+    {%- assign media_label = "Book" -%}
+  {%- when "podcast" -%}
+    {%- assign media_label = "Podcast" -%}
+  {%- when "tv" -%}
+    {%- assign media_label = "TV" -%}
+  {%- when "film" -%}
+    {%- assign media_label = "Film" -%}
+  {%- when "game" -%}
+    {%- assign media_label = "Game" -%}
+{%- endcase -%}
+
+{%- assign raw_status = item.status | downcase | strip -%}
+{%- assign status_label = "" -%}
+{%- case raw_status -%}
+  {%- when "rough" -%}
+    {%- assign status_label = "◌ Rough" -%}
+  {%- when "in-progress" -%}
+    {%- assign status_label = "◐ In progress" -%}
+  {%- when "settled" -%}
+    {%- assign status_label = "● Settled" -%}
+{%- endcase -%}
+
+<span class="post-meta-badges">
+  <span class="badge badge-stream badge-stream--{{ resolved_type }}">{{ stream_label }}</span>
+  {%- if media_label != "" -%}
+  <span class="badge badge-media badge-media--{{ raw_media }}">{{ media_label }}</span>
+  {%- endif -%}
+  {%- if item.rating and item.rating != "" -%}
+  {% include star_rating.html rating=item.rating id_prefix=item.url %}
+  {%- endif -%}
+  {%- if status_label != "" -%}
+  <span class="badge badge-status badge-status-{{ raw_status }} badge-status--{{ raw_status }}">{{ status_label }}</span>
+  {%- endif -%}
+</span>

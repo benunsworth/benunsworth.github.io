@@ -794,3 +794,224 @@ a.pagination-item:hover {
   letter-spacing: .04em;
 }
 
+
+/*
+ * Digital Garden Primitives — Cards, Badges, Star Ratings & Topic Tags
+ */
+
+.post-meta-badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  padding: .15rem .48rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  line-height: 1.3;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.badge-stream {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.badge-media {
+  color: var(--color-accent-hover);
+  background-color: var(--color-accent-soft);
+  border: 1px solid var(--color-progress-border);
+}
+
+.badge-status-rough,
+.badge-status--rough {
+  color: var(--color-rough-text);
+  background-color: var(--color-rough-bg);
+  border: 1px solid var(--color-rough-border);
+}
+
+.badge-status-in-progress,
+.badge-status--in-progress {
+  color: var(--color-progress-text);
+  background-color: var(--color-progress-bg);
+  border: 1px solid var(--color-progress-border);
+}
+
+.badge-status-settled,
+.badge-status--settled {
+  color: var(--color-settled-text);
+  background-color: var(--color-settled-bg);
+  border: 1px solid var(--color-settled-border);
+}
+
+/* 0.5-increment inline SVG star ratings (_includes/star_rating.html) */
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: .12rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--color-text);
+  vertical-align: middle;
+}
+
+.star-rating-svg {
+  width: .92rem;
+  height: .92rem;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.star-rating-num {
+  margin-left: .22rem;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Digital Garden Card Grid & Card States (_includes/garden_card.html) */
+.garden-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 38em) {
+  .garden-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.garden-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.15rem 1.25rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+
+.garden-card:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.garden-card[data-status="rough"] {
+  background-color: var(--color-bg);
+  border: 1.5px dashed var(--color-rough-border);
+}
+
+.garden-card[data-status="rough"]:hover {
+  background-color: var(--color-surface);
+}
+
+.garden-card[data-status="in-progress"] {
+  border-top: 3px solid var(--color-progress-border);
+}
+
+.garden-card[data-status="settled"] {
+  border-top: 3px solid var(--color-settled-border);
+}
+
+.garden-card-context {
+  margin-bottom: .4rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .74rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: .02em;
+}
+
+.garden-card-meta {
+  margin-bottom: .6rem;
+}
+
+.garden-card-title {
+  margin-top: 0;
+  margin-bottom: .45rem;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.garden-card-link {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.garden-card-link:hover,
+.garden-card-link:focus {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.garden-card-summary {
+  margin-top: 0;
+  margin-bottom: .9rem;
+  font-size: .92rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.garden-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .45rem .75rem;
+  padding-top: .65rem;
+  border-top: 1px solid var(--color-border-subtle);
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .76rem;
+  color: var(--color-muted);
+}
+
+.garden-card-dates {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem;
+}
+
+.garden-card-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: .25rem;
+}
+
+.topic-tag {
+  display: inline-block;
+  padding: .08rem .42rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .72rem;
+  color: var(--color-muted);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.topic-tag:hover,
+.topic-tag:focus {
+  color: #fff;
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  text-decoration: none;
+}
+

@@ -1,0 +1,68 @@
+{%- assign card_post = include.post | default: page -%}
+{%- assign raw_type = card_post.type | downcase | strip -%}
+{%- if raw_type == "reading" -%}
+  {%- assign resolved_type = "review" -%}
+{%- elsif raw_type == "essay" or raw_type == "note" or raw_type == "review" or raw_type == "weeknote" -%}
+  {%- assign resolved_type = raw_type -%}
+{%- elsif card_post.media and card_post.media != "" -%}
+  {%- assign resolved_type = "review" -%}
+{%- elsif card_post.rating and card_post.rating != "" -%}
+  {%- assign resolved_type = "review" -%}
+{%- elsif card_post.tags contains "weeknotes" -%}
+  {%- assign resolved_type = "weeknote" -%}
+{%- else -%}
+  {%- assign resolved_type = "note" -%}
+{%- endif -%}
+
+{%- assign raw_status = card_post.status | downcase | strip -%}
+{%- if raw_status == "rough" or raw_status == "in-progress" or raw_status == "settled" -%}
+  {%- assign resolved_status = raw_status -%}
+{%- else -%}
+  {%- assign resolved_status = "" -%}
+{%- endif -%}
+
+{%- assign raw_media = card_post.media | downcase | strip -%}
+{%- if raw_media == "book" or raw_media == "podcast" or raw_media == "tv" or raw_media == "film" or raw_media == "game" -%}
+  {%- assign resolved_media = raw_media -%}
+{%- else -%}
+  {%- assign resolved_media = "" -%}
+{%- endif -%}
+
+{%- if card_post.summary and card_post.summary != "" -%}
+  {%- assign card_summary = card_post.summary -%}
+{%- else -%}
+  {%- assign card_summary = card_post.excerpt | default: card_post.content | strip_html | normalize_whitespace | truncatewords: 28 -%}
+{%- endif -%}
+
+<article class="garden-card" data-type="{{ resolved_type }}" data-status="{{ resolved_status }}" data-media="{{ resolved_media }}">
+  <div class="garden-card-body">
+    {%- if include.context_label and include.context_label != "" -%}
+    <div class="garden-card-context">{{ include.context_label }}</div>
+    {%- endif -%}
+    <div class="garden-card-meta">
+      {% include post_meta_badges.html post=card_post %}
+    </div>
+    <h3 class="garden-card-title">
+      <a class="garden-card-link" href="{{ card_post.url | relative_url }}">{{ card_post.title }}</a>
+    </h3>
+    {%- if card_summary != "" -%}
+    <p class="garden-card-summary">{{ card_summary }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="garden-card-footer">
+    <div class="garden-card-dates">
+      <span>Planted <time datetime="{{ card_post.date | date_to_xmlschema }}">{{ card_post.date | date_to_string }}</time></span>
+      {%- if card_post.updated and card_post.updated != "" -%}
+      <span class="garden-card-updated">&middot; Tended <time datetime="{{ card_post.updated | date: '%Y-%m-%d' }}">{{ card_post.updated | date_to_string }}</time></span>
+      {%- endif -%}
+    </div>
+    {%- if card_post.tags and card_post.tags.size > 0 -%}
+    <div class="garden-card-tags">
+      {%- for tag in card_post.tags -%}
+      <a class="topic-tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">#{{ tag }}</a>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+  </div>
+</article>
