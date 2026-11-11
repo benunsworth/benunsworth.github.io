@@ -38,21 +38,32 @@ As this site evolves from a chronological blog into a **Digital Garden**, all ga
 
 ### Content Streams (`type`)
 - `weeknote` — Regular weekly reflections.
-- `note` — Short thoughts, links, and fragments (*"Things I emailed myself"*). Default if `type` is omitted.
+- `note` — Short thoughts, links, and fragments (*"Things I emailed myself"*). Default if `type` is omitted (unless `media` or `rating` is present, which defaults to `review`, or `tags contains 'weeknotes'`, which defaults to `weeknote`).
 - `essay` — Longer, structured articles and arguments.
-- `reading` — Books, papers, articles, and media notes (*Reading / Library*).
+- `review` (`reading` supported as a backward-compatible alias) — Reviews and notes on books, podcasts, TV, films, and games.
 
-### Development Stage (`status`)
-- `rough` — Early thinking, scratchpad notes, or a working hypothesis shared openly.
-- `in-progress` — Actively being shaped, tested, or added to over time.
-- `settled` — Well-formed thinking or a completed reflection.
+### Media Categories (`media` — optional, for `review` posts)
+- `book` — Books, papers, and long-form reading.
+- `podcast` — Podcasts and audio series/episodes.
+- `tv` — Television series and miniseries.
+- `film` — Films and documentaries.
+- `game` — Video games, board games, and tabletop games.
+
+### Star Ratings (`rating` — optional, for `review` posts)
+- Numeric rating from `0.5` to `5` in `0.5` increments (`0.5`, `1`, `1.5`, `2`, `2.5`, `3`, `3.5`, `4`, `4.5`, `5`).
+- Rendered visually in pure Liquid via `_includes/star_rating.html` using inline SVG stars (full star, half-filled gradient star, and empty star) in Flexoki terracotta (`#bc5215`) alongside the numeric score and `role="img" aria-label="Rated X out of 5 stars"`.
+
+### Development Stage (`status`) & Visual Glyphs
+- `rough` (`◌ Rough`) — Early thinking, scratchpad notes, or a working hypothesis shared openly. Cards use a subtle dashed border (`data-status="rough"`), and post pages display an automatic "Working in the open" notice banner.
+- `in-progress` (`◐ In progress`) — Actively being shaped, tested, or added to over time.
+- `settled` (`● Settled`) — Well-formed thinking or a completed reflection.
 
 ### Dates (`date` and `updated`)
-- `date` — Original publication date (automatically derived from `YYYY-MM-DD` in the `_posts/` filename unless overridden).
-- `updated` — Optional `YYYY-MM-DD` date indicating when an older note or essay was last revisited and tended.
+- `date` — Original publication ("Planted") date (automatically derived from `YYYY-MM-DD` in the `_posts/` filename unless overridden).
+- `updated` — Optional `YYYY-MM-DD` date indicating when an older note, essay, or review was last revisited and tended ("Last tended").
 
 ### How to Implement Digital Garden Features in Pure Liquid
-- **Stream & Status Filtering:** Render `data-type="{{ post.type }}"` and `data-status="{{ post.status }}"` attributes on post cards in Liquid so pages can be filtered both via static collection pages and instant vanilla JS toggles.
+- **Stream, Media & Status Filtering:** Render `data-type`, `data-status`, and `data-media` attributes on post cards in Liquid so pages can be filtered both via static collection pages and instant vanilla JS toggles.
 - **Bidirectional Links (Backlinks):** Never use a Ruby plugin for backlinks. Instead, compute incoming links in pure Liquid within `_layouts/post.html` or an `_includes/backlinks.html` partial by checking `site.posts` where `post.url != page.url` and `post.content contains page.url`.
 - **Callouts & Margin Notes:** Use standard Markdown blockquotes or semantic HTML `<aside class="callout">` styled in CSS rather than custom Liquid tags.
 
@@ -67,8 +78,10 @@ All existing posts in `_posts/` must continue to work without requiring manual m
 layout: post                                        # Defaulted in _config.yml
 title: "Post Title"                                 # Required
 tags: [weeknotes, local-government, ai]             # Recommended (lowercase, hyphenated)
-type: note                                          # Optional: weeknote | note | essay | reading (defaults to 'note')
-status: in-progress                                 # Optional: rough | in-progress | settled
+type: review                                        # Optional: weeknote | note | essay | review | reading (defaults to 'note')
+status: settled                                     # Optional: rough | in-progress | settled
+media: book                                         # Optional (for reviews): book | podcast | tv | film | game
+rating: 4.5                                         # Optional (for reviews): 0.5 to 5 in 0.5 increments
 updated: 2026-11-11                                 # Optional: YYYY-MM-DD date when last tended
 summary: "One-sentence summary for cards and SEO."  # Optional: used in cards/previews if present
 ---
@@ -80,18 +93,31 @@ summary: "One-sentence summary for cards and SEO."  # Optional: used in cards/pr
 
 ## 5. Design, CSS & Accessibility Standards
 
-- **Design Tokens (`:root` CSS Custom Properties):**
-  - When adding new visual components in `public/css/lanyon.css` (or a dedicated stylesheet), use CSS Custom Properties (`--color-text`, `--color-muted`, `--color-accent`, `--color-surface`, `--color-border`, `--radius-sm`) rather than scattering hardcoded hex values across selectors.
-- **Typography & Hierarchy:**
+- **Locked "Inky Flexoki & Terracotta" Design Tokens (`:root` CSS Custom Properties in `public/css/lanyon.css`):**
+  - `--color-bg`: `#fffcf0` (warm paper background)
+  - `--color-surface`: `#f2f0e5` (card, filter bar, and callout surface)
+  - `--color-surface-hover`: `#e6e4d9` (subtle hover state)
+  - `--color-text`: `#100f0f` (primary charcoal ink)
+  - `--color-muted`: `#6f6e69` (secondary metadata and dates)
+  - `--color-border`: `#dad8ce` (card and section borders)
+  - `--color-border-subtle`: `#e6e4d9` (hairline dividers)
+  - `--color-accent`: `#bc5215` (terracotta/rust primary link, star & accent — WCAG AA compliant)
+  - `--color-accent-hover`: `#8b3c0e` (darker rust hover state)
+  - `--color-accent-soft`: `#f9ece4` (soft terracotta fill for `.badge-media`)
+  - `--color-star-empty`: `#d5d2c6` (unfilled star SVG colour)
+  - `--color-rough-text` / `--color-rough-bg` / `--color-rough-border`: `#8a6800` / `#faefb5` / `#d9c36a`
+  - `--color-progress-text` / `--color-progress-bg` / `--color-progress-border`: `#9d3f0c` / `#f9e2d2` / `#e3af8e`
+  - `--color-settled-text` / `--color-settled-bg` / `--color-settled-border`: `#4c6205` / `#e5efc1` / `#b8cf72`
+- **Typography, Hierarchy & Canvas Width:**
   - Preserve the clean editorial pairing of `PT Serif` (body prose) and `PT Sans` (headings, UI controls, metadata badges, navigation).
-  - Keep line lengths comfortable for reading (`32rem`–`38rem` max prose measure).
+  - Keep article prose line lengths comfortable for reading (`32rem`–`38rem` max measure via `.container`), while allowing a wider `.container--wide` (`54rem`) on the homepage for the 2-column Digital Garden card grid.
 - **Mobile-First & Responsive:**
   - Every layout (especially multi-column Digital Garden card grids or sidebars) must collapse cleanly to a single column on narrow viewports (`< 38em`) with no horizontal overflow.
 - **Accessibility (WCAG 2.2 AA):**
   - Maintain at least `4.5:1` colour contrast for normal text and `3:1` for large text / UI borders.
   - Use semantic HTML (`<main>`, `<nav>`, `<article>`, `<section>`, `<aside>`, proper `<h1>`–`<h3>` nesting).
-  - Every `<img>` must include a descriptive `alt` attribute (or `alt=""` if purely decorative).
-  - Interactive controls (inputs, filter buttons, toggles) must be keyboard-accessible with visible `:focus-visible` outlines and appropriate `aria-label` attributes.
+  - Every `<img>` must include a descriptive `alt` attribute (or `alt=""` if purely decorative), and visual SVG star ratings must include `role="img" aria-label="Rated X out of 5 stars"`.
+  - Interactive controls (inputs, filter buttons, toggles) must be keyboard-accessible with visible `:focus-visible` outlines and appropriate `aria-label` / `aria-pressed` attributes.
   - Respect `prefers-reduced-motion: reduce` for any CSS transitions or animations.
 - **Language:** Use UK English spelling (`organisation`, `programme`, `user-centred`, `colour`, `prioritise`).
 
