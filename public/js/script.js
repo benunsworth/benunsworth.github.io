@@ -55,13 +55,19 @@
     }
 
     var rawStatus = (post.status || '').toLowerCase();
-    var statusMap = {
-      rough: '\u25cc Rough',
-      'in-progress': '\u25d0 In progress',
-      settled: '\u25cf Settled'
+    var statusSvgs = {
+      rough: '<svg class="status-glyph-svg" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true" focusable="false"><circle cx="5" cy="5" r="4.1" fill="none" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2.2 1.8" stroke-linecap="round" /></svg>',
+      'in-progress': '<svg class="status-glyph-svg" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true" focusable="false"><circle cx="5" cy="5" r="4.1" fill="none" stroke="currentColor" stroke-width="1.3" /><path d="M 5,0.9 A 4.1,4.1 0 0,0 5,9.1 Z" fill="currentColor" /></svg>',
+      settled: '<svg class="status-glyph-svg" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true" focusable="false"><circle cx="5" cy="5" r="4.4" fill="currentColor" /></svg>'
     };
-    if (rawStatus && statusMap[rawStatus]) {
-      html += '<span class="badge badge-status badge-status-' + escapeHtml(rawStatus) + ' badge-status--' + escapeHtml(rawStatus) + '">' + escapeHtml(statusMap[rawStatus]) + '</span>';
+    var statusLabels = {
+      rough: 'Rough',
+      'in-progress': 'In progress',
+      settled: 'Settled'
+    };
+    if (rawStatus && statusLabels[rawStatus]) {
+      html += '<span class="badge badge-status badge-status-' + escapeHtml(rawStatus) + ' badge-status--' + escapeHtml(rawStatus) + '">' +
+        statusSvgs[rawStatus] + '<span>' + escapeHtml(statusLabels[rawStatus]) + '</span></span>';
     }
 
     html += '</span>';

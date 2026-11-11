@@ -25,7 +25,7 @@ layout: default
   {%- assign raw_status = page.status | downcase | strip -%}
   {%- if raw_status == "rough" -%}
   <aside class="epistemic-banner" aria-label="Working in the open notice">
-    <span class="epistemic-banner-glyph" aria-hidden="true">◌</span>
+    <span class="epistemic-banner-glyph" aria-hidden="true">{% include status_glyph.html status="rough" %}</span>
     <div class="epistemic-banner-content">
       <strong>Working in the open &mdash; Rough note.</strong> This is early thinking, a scratchpad note, or a working hypothesis shared before it is fully formed. It may evolve as ideas are tested.
     </div>

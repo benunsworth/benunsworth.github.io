@@ -53,10 +53,11 @@ As this site evolves from a chronological blog into a **Digital Garden**, all ga
 - Numeric rating from `0.5` to `5` in `0.5` increments (`0.5`, `1`, `1.5`, `2`, `2.5`, `3`, `3.5`, `4`, `4.5`, `5`).
 - Rendered visually in pure Liquid via `_includes/star_rating.html` using inline SVG stars (full star, half-filled gradient star, and empty star) in Flexoki terracotta (`#bc5215`) alongside the numeric score and `role="img" aria-label="Rated X out of 5 stars"`.
 
-### Development Stage (`status`) & Visual Glyphs
-- `rough` (`◌ Rough`) — Early thinking, scratchpad notes, or a working hypothesis shared openly. Cards use a subtle dashed border (`data-status="rough"`), and post pages display an automatic "Working in the open" notice banner.
-- `in-progress` (`◐ In progress`) — Actively being shaped, tested, or added to over time.
-- `settled` (`● Settled`) — Well-formed thinking or a completed reflection.
+### Development Stage (`status`) & Precision Vector Glyphs
+- Development stages are rendered visually with pure Liquid 10×10px inline vector SVGs (`_includes/status_glyph.html`) rather than font-dependent Unicode characters (`◌`, `◐`, `●`), guaranteeing identical optical weight and alignment across all devices:
+  - `rough` (`Rough`) — Early thinking, scratchpad notes, or a working hypothesis shared openly. Rendered as a dashed 10px SVG circle (`stroke-dasharray="2.2 1.8"`). Cards use a subtle dashed border (`data-status="rough"`), and post pages display an automatic "Working in the open" notice banner styled with a 16px glyph.
+  - `in-progress` (`In progress`) — Actively being shaped, tested, or added to over time. Rendered as a half-filled 10px SVG circle (`stroke-width="1.3"` outline + filled left semicircle).
+  - `settled` (`Settled`) — Well-formed thinking or a completed reflection. Rendered as a solid 10px SVG circle (`r="4.4" fill="currentColor"`).
 
 ### Dates (`date` and `updated`)
 - `date` — Original publication ("Planted") date (automatically derived from `YYYY-MM-DD` in the `_posts/` filename unless overridden).

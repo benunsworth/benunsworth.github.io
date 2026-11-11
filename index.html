@@ -12,15 +12,15 @@ wide_layout: true
   <div class="garden-legend" aria-label="Maturity stage legend">
     <span class="garden-legend-label">Stage key:</span>
     <span class="garden-legend-item">
-      <span class="badge badge-status badge-status-rough badge-status--rough">◌ Rough</span>
+      <span class="badge badge-status badge-status-rough badge-status--rough">{% include status_glyph.html status="rough" %}<span>Rough</span></span>
       <span>Early thinking &amp; scratchpad notes</span>
     </span>
     <span class="garden-legend-item">
-      <span class="badge badge-status badge-status-in-progress badge-status--in-progress">◐ In progress</span>
+      <span class="badge badge-status badge-status-in-progress badge-status--in-progress">{% include status_glyph.html status="in-progress" %}<span>In progress</span></span>
       <span>Actively being shaped &amp; tested</span>
     </span>
     <span class="garden-legend-item">
-      <span class="badge badge-status badge-status-settled badge-status--settled">● Settled</span>
+      <span class="badge badge-status badge-status-settled badge-status--settled">{% include status_glyph.html status="settled" %}<span>Settled</span></span>
       <span>Well-formed reflection</span>
     </span>
   </div>
@@ -45,9 +45,9 @@ wide_layout: true
     <div class="filter-group" role="group" aria-label="Filter by maturity stage">
       <span class="filter-group-label">Stage</span>
       <button type="button" class="filter-pill active" data-filter-group="status" data-filter-value="all" aria-pressed="true">All stages</button>
-      <button type="button" class="filter-pill" data-filter-group="status" data-filter-value="rough" aria-pressed="false">◌ Rough</button>
-      <button type="button" class="filter-pill" data-filter-group="status" data-filter-value="in-progress" aria-pressed="false">◐ In progress</button>
-      <button type="button" class="filter-pill" data-filter-group="status" data-filter-value="settled" aria-pressed="false">● Settled</button>
+      <button type="button" class="filter-pill" data-filter-group="status" data-filter-value="rough" aria-pressed="false">{% include status_glyph.html status="rough" %}<span>Rough</span></button>
+      <button type="button" class="filter-pill" data-filter-group="status" data-filter-value="in-progress" aria-pressed="false">{% include status_glyph.html status="in-progress" %}<span>In progress</span></button>
+      <button type="button" class="filter-pill" data-filter-group="status" data-filter-value="settled" aria-pressed="false">{% include status_glyph.html status="settled" %}<span>Settled</span></button>
     </div>
 
     <div class="filter-group" role="group" aria-label="Filter reviews by media category">

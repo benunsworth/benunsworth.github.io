@@ -44,11 +44,11 @@
 {%- assign status_label = "" -%}
 {%- case raw_status -%}
   {%- when "rough" -%}
-    {%- assign status_label = "◌ Rough" -%}
+    {%- assign status_label = "Rough" -%}
   {%- when "in-progress" -%}
-    {%- assign status_label = "◐ In progress" -%}
+    {%- assign status_label = "In progress" -%}
   {%- when "settled" -%}
-    {%- assign status_label = "● Settled" -%}
+    {%- assign status_label = "Settled" -%}
 {%- endcase -%}
 
 <span class="post-meta-badges">
@@ -61,6 +61,6 @@
   {% include star_rating.html rating=item.rating id_prefix=star_id_prefix %}
   {%- endif -%}
   {%- if status_label != "" -%}
-  <span class="badge badge-status badge-status-{{ raw_status }} badge-status--{{ raw_status }}">{{ status_label }}</span>
+  <span class="badge badge-status badge-status-{{ raw_status }} badge-status--{{ raw_status }}">{% include status_glyph.html status=raw_status %}<span>{{ status_label }}</span></span>
   {%- endif -%}
 </span>

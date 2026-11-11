@@ -835,6 +835,20 @@ a.pagination-item:hover {
   border: 1px solid var(--color-progress-border);
 }
 
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+}
+
+.status-glyph-svg {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .badge-status-rough,
 .badge-status--rough {
   color: var(--color-rough-text);
@@ -1127,7 +1141,7 @@ a.pagination-item:hover {
 .filter-pill {
   display: inline-flex;
   align-items: center;
-  gap: .25rem;
+  gap: .35rem;
   padding: .24rem .62rem;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: .78rem;
@@ -1359,11 +1373,17 @@ a.pagination-item:hover {
 }
 
 .epistemic-banner-glyph {
+  display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
-  font-size: 1.05rem;
-  font-weight: 700;
-  line-height: 1.25;
+  line-height: 1;
   color: var(--color-rough-text);
+  margin-top: .15rem;
+}
+
+.epistemic-banner-glyph .status-glyph-svg {
+  width: 16px;
+  height: 16px;
 }
 
 .epistemic-banner strong {
