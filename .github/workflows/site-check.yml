@@ -84,9 +84,18 @@ jobs:
 
       - name: Validate JSON search index & XML feeds
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq libxml2-utils jq
-          jq empty _site/search.json
-          xmllint --noout _site/atom.xml _site/feed.xml _site/sitemap.xml
+          python3 - << 'EOF'
+          import json
+          import xml.etree.ElementTree as ET
+
+          with open("_site/search.json", "r", encoding="utf-8") as fh:
+              data = json.load(fh)
+          assert isinstance(data, list) and len(data) > 0, "_site/search.json must be a non-empty JSON list"
+
+          for xml_path in ("_site/atom.xml", "_site/feed.xml", "_site/sitemap.xml"):
+              ET.parse(xml_path)
+          print("Validated _site/search.json and XML feeds (atom.xml, feed.xml, sitemap.xml).")
+          EOF
 
       - name: Verify internal links, anchor IDs, local assets & image alt attributes
         run: |
