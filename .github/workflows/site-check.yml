@@ -21,8 +21,10 @@ jobs:
           python3 - << 'EOF'
           import glob, re, sys
 
-          ALLOWED_TYPES = {"weeknote", "note", "essay", "reading"}
+          ALLOWED_TYPES = {"weeknote", "note", "essay", "review", "reading"}
           ALLOWED_STATUSES = {"rough", "in-progress", "settled"}
+          ALLOWED_MEDIA = {"book", "podcast", "tv", "film", "game"}
+          ALLOWED_RATINGS = {"0.5", "1", "1.0", "1.5", "2", "2.0", "2.5", "3", "3.0", "3.5", "4", "4.0", "4.5", "5", "5.0"}
           DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
           errors = []
@@ -55,6 +57,12 @@ jobs:
 
               if "status" in fm and fm["status"] and fm["status"] not in ALLOWED_STATUSES:
                   errors.append(f"{path}: invalid status '{fm['status']}' (allowed: {sorted(ALLOWED_STATUSES)})")
+
+              if "media" in fm and fm["media"] and fm["media"] not in ALLOWED_MEDIA:
+                  errors.append(f"{path}: invalid media '{fm['media']}' (allowed: {sorted(ALLOWED_MEDIA)})")
+
+              if "rating" in fm and fm["rating"] and fm["rating"] not in ALLOWED_RATINGS:
+                  errors.append(f"{path}: invalid rating '{fm['rating']}' (allowed: 0.5 to 5.0 in 0.5 increments)")
 
               if "updated" in fm and fm["updated"] and not DATE_RE.match(fm["updated"]):
                   errors.append(f"{path}: invalid updated date '{fm['updated']}' (expected YYYY-MM-DD)")
