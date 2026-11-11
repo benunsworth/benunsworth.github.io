@@ -57,7 +57,8 @@
   <span class="badge badge-media badge-media--{{ raw_media }}">{{ media_label }}</span>
   {%- endif -%}
   {%- if item.rating and item.rating != "" -%}
-  {% include star_rating.html rating=item.rating id_prefix=item.url %}
+  {%- assign star_id_prefix = include.id_prefix | default: item.url -%}
+  {% include star_rating.html rating=item.rating id_prefix=star_id_prefix %}
   {%- endif -%}
   {%- if status_label != "" -%}
   <span class="badge badge-status badge-status-{{ raw_status }} badge-status--{{ raw_status }}">{{ status_label }}</span>

@@ -16,9 +16,16 @@ permalink: /archive/
     <ul class="archive-list">
       {% for post in year.items %}
         <li class="archive-item">
-          <a class="archive-title" href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+          <div class="archive-item-header">
+            <a class="archive-title" href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+            {% include post_meta_badges.html post=post %}
+          </div>
           <small class="archive-meta">
-            {{ post.date | date_to_string }} &middot; {% include reading_time.html content=post.content %}
+            <span>Planted {{ post.date | date_to_string }}</span>
+            {%- if post.updated and post.updated != "" -%}
+            <span>&middot; Tended {{ post.updated | date_to_string }}</span>
+            {%- endif -%}
+            <span>&middot; {% include reading_time.html content=post.content %}</span>
           </small>
           {% include post_tags.html tags=post.tags %}
         </li>

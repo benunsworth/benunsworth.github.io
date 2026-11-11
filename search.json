@@ -3,11 +3,58 @@ layout: null
 ---
 [
   {%- for post in site.posts -%}
+  {%- assign raw_type = post.type | downcase | strip -%}
+  {%- if raw_type == "reading" -%}
+    {%- assign resolved_type = "review" -%}
+  {%- elsif raw_type == "essay" or raw_type == "note" or raw_type == "review" or raw_type == "weeknote" -%}
+    {%- assign resolved_type = raw_type -%}
+  {%- elsif post.media and post.media != "" -%}
+    {%- assign resolved_type = "review" -%}
+  {%- elsif post.rating and post.rating != "" -%}
+    {%- assign resolved_type = "review" -%}
+  {%- elsif post.tags contains "weeknotes" -%}
+    {%- assign resolved_type = "weeknote" -%}
+  {%- else -%}
+    {%- assign resolved_type = "note" -%}
+  {%- endif -%}
+  {%- assign raw_status = post.status | downcase | strip -%}
+  {%- if raw_status == "rough" or raw_status == "in-progress" or raw_status == "settled" -%}
+    {%- assign resolved_status = raw_status -%}
+  {%- else -%}
+    {%- assign resolved_status = "" -%}
+  {%- endif -%}
+  {%- assign raw_media = post.media | downcase | strip -%}
+  {%- if raw_media == "book" or raw_media == "podcast" or raw_media == "tv" or raw_media == "film" or raw_media == "game" -%}
+    {%- assign resolved_media = raw_media -%}
+  {%- else -%}
+    {%- assign resolved_media = "" -%}
+  {%- endif -%}
+  {%- if post.rating and post.rating != "" -%}
+    {%- assign resolved_rating = post.rating | append: "" -%}
+  {%- else -%}
+    {%- assign resolved_rating = "" -%}
+  {%- endif -%}
+  {%- if post.updated and post.updated != "" -%}
+    {%- assign resolved_updated = post.updated | date_to_string -%}
+  {%- else -%}
+    {%- assign resolved_updated = "" -%}
+  {%- endif -%}
+  {%- if post.summary and post.summary != "" -%}
+    {%- assign resolved_summary = post.summary -%}
+  {%- else -%}
+    {%- assign resolved_summary = post.excerpt | default: post.content | strip_html | normalize_whitespace | truncatewords: 28 -%}
+  {%- endif -%}
   {
     "title": {{ post.title | jsonify }},
     "url": {{ post.url | absolute_url | jsonify }},
     "date": {{ post.date | date_to_string | jsonify }},
+    "updated": {{ resolved_updated | jsonify }},
     "reading_time": "{% include reading_time.html content=post.content %}",
+    "type": {{ resolved_type | jsonify }},
+    "status": {{ resolved_status | jsonify }},
+    "media": {{ resolved_media | jsonify }},
+    "rating": {{ resolved_rating | jsonify }},
+    "summary": {{ resolved_summary | jsonify }},
     "tags": {{ post.tags | jsonify }},
     "content": {{ post.content | strip_html | normalize_whitespace | jsonify }}
   }{% unless forloop.last %},{% endunless %}

@@ -19,14 +19,23 @@ permalink: /tags/
 {% for tag in sorted_tags %}
   {% assign tag_name = tag[0] %}
   {% assign tag_posts = tag[1] %}
-  <div class="tag-section" id="{{ tag_name | slugify }}">
+  {% assign tag_slug = tag_name | slugify %}
+  <div class="tag-section" id="{{ tag_slug }}">
     <h2 class="tag-heading">#{{ tag_name }}</h2>
     <ul class="archive-list">
       {% for post in tag_posts %}
+        {% assign badge_prefix = tag_slug | append: "-" | append: post.url %}
         <li class="archive-item">
-          <a class="archive-title" href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+          <div class="archive-item-header">
+            <a class="archive-title" href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+            {% include post_meta_badges.html post=post id_prefix=badge_prefix %}
+          </div>
           <small class="archive-meta">
-            {{ post.date | date_to_string }} &middot; {% include reading_time.html content=post.content %}
+            <span>Planted {{ post.date | date_to_string }}</span>
+            {%- if post.updated and post.updated != "" -%}
+            <span>&middot; Tended {{ post.updated | date_to_string }}</span>
+            {%- endif -%}
+            <span>&middot; {% include reading_time.html content=post.content %}</span>
           </small>
         </li>
       {% endfor %}

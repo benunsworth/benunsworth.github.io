@@ -1299,3 +1299,166 @@ a.pagination-item:hover {
   opacity: .8;
 }
 
+
+/*
+ * Batch 4: Living Note Layout, Epistemic Banner, Warm Callouts,
+ * Backlinks Grid & Upgraded Archive / Topics Rows
+ */
+
+.post-header {
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.6rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.post-header-badges {
+  margin-bottom: .55rem;
+}
+
+.post-header .post-title {
+  margin-top: 0;
+  margin-bottom: .45rem;
+}
+
+.post-header .post-date {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem .4rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .86rem;
+  color: var(--color-muted);
+}
+
+.post-header-tags {
+  margin-top: .55rem;
+}
+
+.post-header-tags .post-tags {
+  margin-left: 0;
+}
+
+/* Epistemic notice banner for status: rough notes */
+.epistemic-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: .65rem;
+  padding: .85rem 1.05rem;
+  margin-top: 0;
+  margin-bottom: 1.65rem;
+  background-color: var(--color-rough-bg);
+  border: 1px solid var(--color-rough-border);
+  border-left: 4px solid var(--color-rough-text);
+  border-radius: 6px;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .88rem;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+.epistemic-banner-glyph {
+  flex-shrink: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-rough-text);
+}
+
+.epistemic-banner strong {
+  color: var(--color-rough-text);
+}
+
+/* Warm Flexoki callout boxes & blockquotes */
+blockquote {
+  padding: .75rem 1.15rem;
+  margin: 1.25rem 0;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 0 4px 4px 0;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.message,
+aside.callout,
+.callout {
+  padding: .95rem 1.15rem;
+  margin: 1.35rem 0;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 6px;
+}
+
+.message p:last-child,
+aside.callout p:last-child,
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* Pure-Liquid Backlinks & Connected Notes section */
+.backlinks-section {
+  padding-top: 1.85rem;
+  margin-top: .5rem;
+  margin-bottom: 2.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.backlinks-title {
+  margin-top: 0;
+  margin-bottom: .25rem;
+  font-size: 1.25rem;
+}
+
+.backlinks-sub {
+  margin-top: 0;
+  margin-bottom: 1.1rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .84rem;
+  color: var(--color-muted);
+}
+
+/* Upgraded Archive & Topics list rows */
+.archive-item {
+  padding: .65rem 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.archive-item:last-child {
+  border-bottom: none;
+}
+
+.archive-item-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem .6rem;
+  margin-bottom: .2rem;
+}
+
+.archive-title {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.archive-item .archive-meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem;
+  margin-left: 0;
+  margin-right: .35rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .8rem;
+  color: var(--color-muted);
+}
+
+

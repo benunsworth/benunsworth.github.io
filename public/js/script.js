@@ -26,6 +26,48 @@
     return div.innerHTML;
   }
 
+  function buildSearchBadgesHtml(post) {
+    var rawType = (post.type || 'note').toLowerCase();
+    var streamMap = {
+      essay: 'Essay',
+      weeknote: 'Weeknote',
+      review: 'Review',
+      note: 'Note'
+    };
+    var streamLabel = streamMap[rawType] || 'Note';
+    var html = '<span class="post-meta-badges">' +
+      '<span class="badge badge-stream badge-stream--' + escapeHtml(rawType) + '">' + escapeHtml(streamLabel) + '</span>';
+
+    var rawMedia = (post.media || '').toLowerCase();
+    var mediaMap = {
+      book: 'Book',
+      podcast: 'Podcast',
+      tv: 'TV',
+      film: 'Film',
+      game: 'Game'
+    };
+    if (rawMedia && mediaMap[rawMedia]) {
+      html += '<span class="badge badge-media badge-media--' + escapeHtml(rawMedia) + '">' + escapeHtml(mediaMap[rawMedia]) + '</span>';
+    }
+
+    if (post.rating) {
+      html += '<span class="badge badge-media" role="img" aria-label="Rated ' + escapeHtml(String(post.rating)) + ' out of 5 stars">&#9733; ' + escapeHtml(String(post.rating)) + '/5</span>';
+    }
+
+    var rawStatus = (post.status || '').toLowerCase();
+    var statusMap = {
+      rough: '\u25cc Rough',
+      'in-progress': '\u25d0 In progress',
+      settled: '\u25cf Settled'
+    };
+    if (rawStatus && statusMap[rawStatus]) {
+      html += '<span class="badge badge-status badge-status-' + escapeHtml(rawStatus) + ' badge-status--' + escapeHtml(rawStatus) + '">' + escapeHtml(statusMap[rawStatus]) + '</span>';
+    }
+
+    html += '</span>';
+    return html;
+  }
+
   function renderResults(query) {
     if (!searchResults || !archiveContent) return;
     var trimmed = query.trim().toLowerCase();
@@ -42,8 +84,12 @@
     var matches = searchData.filter(function(post) {
       var inTitle = post.title && post.title.toLowerCase().indexOf(trimmed) !== -1;
       var inTags = post.tags && post.tags.join(' ').toLowerCase().indexOf(trimmed) !== -1;
+      var inSummary = post.summary && post.summary.toLowerCase().indexOf(trimmed) !== -1;
+      var inType = post.type && post.type.toLowerCase().indexOf(trimmed) !== -1;
+      var inStatus = post.status && post.status.toLowerCase().indexOf(trimmed) !== -1;
+      var inMedia = post.media && post.media.toLowerCase().indexOf(trimmed) !== -1;
       var inContent = post.content && post.content.toLowerCase().indexOf(trimmed) !== -1;
-      return inTitle || inTags || inContent;
+      return inTitle || inTags || inSummary || inType || inStatus || inMedia || inContent;
     });
 
     if (matches.length === 0) {
@@ -53,7 +99,7 @@
 
     searchResults.innerHTML = matches.map(function(post) {
       var snippet = '';
-      if (post.content) {
+      if (post.content && post.content.toLowerCase().indexOf(trimmed) !== -1) {
         var idx = post.content.toLowerCase().indexOf(trimmed);
         var start = idx > 40 ? idx - 40 : 0;
         var rawSnippet = post.content.slice(start, start + 160);
@@ -62,10 +108,18 @@
           escapeHtml(rawSnippet) +
           (start + 160 < post.content.length ? '&hellip;' : '') +
           '</div>';
+      } else if (post.summary) {
+        snippet = '<div class="search-snippet">' + escapeHtml(post.summary) + '</div>';
       }
+
+      var updatedMeta = post.updated ? ' &middot; Tended ' + escapeHtml(post.updated) : '';
+
       return '<li class="archive-item">' +
-        '<a class="archive-title" href="' + escapeHtml(post.url) + '">' + escapeHtml(post.title) + '</a>' +
-        '<small class="archive-meta">' + escapeHtml(post.date) + ' &middot; ' + escapeHtml(post.reading_time) + '</small>' +
+        '<div class="archive-item-header">' +
+          '<a class="archive-title" href="' + escapeHtml(post.url) + '">' + escapeHtml(post.title) + '</a>' +
+          buildSearchBadgesHtml(post) +
+        '</div>' +
+        '<small class="archive-meta">Planted ' + escapeHtml(post.date) + updatedMeta + ' &middot; ' + escapeHtml(post.reading_time) + '</small>' +
         snippet +
       '</li>';
     }).join('');
