@@ -2,6 +2,9 @@
 layout: post
 title: Weeknote 19th December
 tags: [weeknotes, local-government, ai, technology]
+type: weeknote
+status: settled
+summary: "Going live with a new housing management system before Christmas, virtual desktop migration, and reading Karen Hao's Empire of AI."
 ---
 
 A bit of a wrap-up week before the holidays, the highlights were:

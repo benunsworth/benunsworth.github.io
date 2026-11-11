@@ -2,6 +2,9 @@
 layout: post
 title: Friday 6 February
 tags: [weeknotes, ai, service-design]
+type: note
+status: rough
+summary: "Notes on the AI Skills Hub launch, the UK's digital government track record, refusing dead corporate language, and avoiding LLM mode collapse."
 ---
 
 ## Things I emailed myself

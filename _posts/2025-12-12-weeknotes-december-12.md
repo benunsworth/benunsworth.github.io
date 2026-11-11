@@ -2,6 +2,9 @@
 layout: post
 title: Weeknote 12th December
 tags: [weeknotes, local-government, service-design, technology]
+type: weeknote
+status: settled
+summary: "Speaking about resident expectations at the Sutton Staff Conference, predicting more radical service design at techUK, and navigating open document standards."
 ---
 
 ## Last week

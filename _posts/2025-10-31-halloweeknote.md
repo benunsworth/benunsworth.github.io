@@ -2,6 +2,9 @@
 layout: post
 title: Halloweeknote
 tags: [weeknotes, local-government, ai, service-design]
+type: note
+status: rough
+summary: "Early reflections on starting at Kingston and Sutton, scaling digital infrastructure with GOV.UK Notify, messy data in an agentic AI era, and Model Context Protocol."
 ---
 
 It has been almost three months since my last weeknote. Habits are hard to form and easy to break. 

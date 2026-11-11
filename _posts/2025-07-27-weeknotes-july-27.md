@@ -2,6 +2,9 @@
 layout: post
 title: Weeknotes 21st to 27th July
 tags: [weeknotes, open-working]
+type: weeknote
+status: settled
+summary: "Restarting a regular blogging habit, wrapping up and handing over at TPXimpact, and reflecting on the power of working in the open."
 ---
 
 Jukesie's [Nostalgia Act Era](https://digitalbydefault.com/2025/06/15/my-nostalgia-act-era/) has been a good kick up the backside for my stop-start relationship with blogging. Or at least personal blogging and writing things down on the internet under my own website.

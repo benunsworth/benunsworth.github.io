@@ -2,6 +2,9 @@
 layout: post
 title: Weeknotes 2nd to 7th November
 tags: [weeknotes, local-government, ai, leadership]
+type: note
+status: in-progress
+summary: "Applying Jevons' paradox and Baumol's cost disease to local government digital demand, alongside Gold and Silver emergency command training."
 ---
 
 ## Jevons’ Paradox and Baumol’s Costs Disease

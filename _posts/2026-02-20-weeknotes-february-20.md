@@ -2,6 +2,9 @@
 layout: post
 title: Friday 20 February
 tags: [weeknotes, local-government, ai, service-design]
+type: note
+status: in-progress
+summary: "Why generative and agentic AI could remove friction as a policy lever across local government, starting with rising FOI volume and complexity."
 ---
 
 This week felt like a compressed version of my first six months. Equal parts trying to deal with unpredictable things and making space for shaping the work that needs to happen. Highlights this week were:

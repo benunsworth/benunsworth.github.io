@@ -2,6 +2,9 @@
 layout: post
 title: Remembering Casserole
 tags: [weeknotes, local-government, service-design, leadership]
+type: essay
+status: settled
+summary: "Looking back at FutureGov's Casserole meal-sharing project and why local government still needs radical, technology-enabled operating models."
 ---
 
 ## Remembering Casserole

@@ -2,6 +2,9 @@
 layout: post
 title: Weeknotes 28th July to 3rd August
 tags: [weeknotes, local-government]
+type: weeknote
+status: settled
+summary: "Final handovers at TPXimpact, reflections on rapid prototype-to-beta delivery with the Ministry of Justice, and preparing for a summer break."
 ---
 
 ## What I've been doing

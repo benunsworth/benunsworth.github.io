@@ -2,6 +2,9 @@
 layout: post
 title: Weeknote first half of January
 tags: [weeknotes, local-government, ai, service-design, technology]
+type: weeknote
+status: settled
+summary: "Starting 2026 with a new AWS app streaming deployment, moving the housing system out of hypercare, and adapting operating models for AI."
 ---
 
 Bit late, but happy new year.
