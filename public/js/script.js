@@ -90,4 +90,86 @@
       renderResults(e.target.value);
     });
   }
+
+  var filterButtons = document.querySelectorAll('.filter-pill[data-filter-group]');
+  var gardenCards = document.querySelectorAll('#garden-grid .garden-card');
+  var gardenCount = document.getElementById('garden-count');
+  var gardenEmptyState = document.getElementById('garden-empty-state');
+  var gardenResetBtn = document.getElementById('garden-reset-filters');
+
+  if (filterButtons.length > 0 && gardenCards.length > 0) {
+    var totalEntries = gardenCards.length;
+    var activeFilters = {
+      type: 'all',
+      status: 'all',
+      media: 'all'
+    };
+
+    var syncFilterPills = function() {
+      for (var i = 0; i < filterButtons.length; i++) {
+        var btn = filterButtons[i];
+        var group = btn.getAttribute('data-filter-group');
+        var val = btn.getAttribute('data-filter-value');
+        var isActive = (activeFilters[group] === val);
+        if (isActive) {
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+        } else {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
+        }
+      }
+    };
+
+    var applyGardenFilters = function() {
+      var visibleCount = 0;
+      for (var i = 0; i < gardenCards.length; i++) {
+        var card = gardenCards[i];
+        var cardType = card.getAttribute('data-type') || '';
+        var cardStatus = card.getAttribute('data-status') || '';
+        var cardMedia = card.getAttribute('data-media') || '';
+
+        var matchesType = (activeFilters.type === 'all') || (cardType === activeFilters.type);
+        var matchesStatus = (activeFilters.status === 'all') || (cardStatus === activeFilters.status);
+        var matchesMedia = (activeFilters.media === 'all') || (cardMedia === activeFilters.media);
+
+        if (matchesType && matchesStatus && matchesMedia) {
+          card.hidden = false;
+          visibleCount++;
+        } else {
+          card.hidden = true;
+        }
+      }
+
+      if (gardenCount) {
+        gardenCount.textContent = 'Showing ' + visibleCount + ' of ' + totalEntries + (totalEntries === 1 ? ' entry' : ' entries');
+      }
+
+      if (gardenEmptyState) {
+        gardenEmptyState.hidden = (visibleCount > 0);
+      }
+    };
+
+    for (var i = 0; i < filterButtons.length; i++) {
+      filterButtons[i].addEventListener('click', function(e) {
+        var btn = e.currentTarget;
+        var group = btn.getAttribute('data-filter-group');
+        var val = btn.getAttribute('data-filter-value');
+        if (!group || !val) return;
+        activeFilters[group] = val;
+        syncFilterPills();
+        applyGardenFilters();
+      });
+    }
+
+    if (gardenResetBtn) {
+      gardenResetBtn.addEventListener('click', function() {
+        activeFilters.type = 'all';
+        activeFilters.status = 'all';
+        activeFilters.media = 'all';
+        syncFilterPills();
+        applyGardenFilters();
+      });
+    }
+  }
 })(document);

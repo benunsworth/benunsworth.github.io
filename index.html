@@ -1,47 +1,124 @@
 ---
 layout: default
 title: Home
+wide_layout: true
 ---
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url | absolute_url }}">
-        {{ post.title }}
-      </a>
-    </h1>
-
-    <span class="post-date">
-      {{ post.date | date_to_string }} &middot; {% include reading_time.html content=post.content %}
-      {% include post_tags.html tags=post.tags %}
+<section class="garden-intro" aria-label="About this digital garden">
+  <h1 class="garden-intro-title">Working in the open</h1>
+  <p class="garden-intro-lead">
+    Welcome to my digital garden &mdash; a working notebook of essays, rough notes, reviews, and weekly reflections on leading digital, service design, and technology in local government. Ideas here grow over time rather than sitting in a strictly chronological feed.
+  </p>
+  <div class="garden-legend" aria-label="Maturity stage legend">
+    <span class="garden-legend-label">Stage key:</span>
+    <span class="garden-legend-item">
+      <span class="badge badge-status badge-status-rough badge-status--rough">◌ Rough</span>
+      <span>Early thinking &amp; scratchpad notes</span>
     </span>
-
-    {% assign paragraphs = post.content | split: '</p>' %}
-    {% if paragraphs.size > 2 %}
-      {{ paragraphs[0] }}</p>
-      {{ paragraphs[1] }}</p>
-      <p><a class="read-more" href="{{ post.url | absolute_url }}">Continue reading &rarr;</a></p>
-    {% else %}
-      {{ post.content }}
-    {% endif %}
+    <span class="garden-legend-item">
+      <span class="badge badge-status badge-status-in-progress badge-status--in-progress">◐ In progress</span>
+      <span>Actively being shaped &amp; tested</span>
+    </span>
+    <span class="garden-legend-item">
+      <span class="badge badge-status badge-status-settled badge-status--settled">● Settled</span>
+      <span>Well-formed reflection</span>
+    </span>
   </div>
-  {% endfor %}
-</div>
+</section>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ paginator.next_page_path | absolute_url }}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ '/' | absolute_url }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ paginator.previous_page_path | absolute_url }}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
+<section class="garden-zone" aria-labelledby="zone-a-heading">
+  <div class="garden-zone-header">
+    <h2 id="zone-a-heading" class="garden-zone-title">Notes, Essays &amp; Reviews</h2>
+    <span id="garden-count" class="garden-count" aria-live="polite">Showing {{ site.posts.size }} of {{ site.posts.size }} entries</span>
+  </div>
+
+  <div class="garden-filter-bar" role="region" aria-label="Filter garden entries">
+    <div class="filter-group" role="group" aria-label="Filter by content stream">
+      <span class="filter-group-label">Stream</span>
+      <button type="button" class="filter-pill active" data-filter-group="type" data-filter-value="all" aria-pressed="true">All</button>
+      <button type="button" class="filter-pill" data-filter-group="type" data-filter-value="essay" aria-pressed="false">Essays</button>
+      <button type="button" class="filter-pill" data-filter-group="type" data-filter-value="note" aria-pressed="false">Notes</button>
+      <button type="button" class="filter-pill" data-filter-group="type" data-filter-value="review" aria-pressed="false">Reviews ★</button>
+      <button type="button" class="filter-pill" data-filter-group="type" data-filter-value="weeknote" aria-pressed="false">Weeknotes</button>
+    </div>
+
+    <div class="filter-group" role="group" aria-label="Filter by maturity stage">
+      <span class="filter-group-label">Stage</span>
+      <button type="button" class="filter-pill active" data-filter-group="status" data-filter-value="all" aria-pressed="true">All stages</button>
+      <button type="button" class="filter-pill" data-filter-group="status" data-filter-value="rough" aria-pressed="false">◌ Rough</button>
+      <button type="button" class="filter-pill" data-filter-group="status" data-filter-value="in-progress" aria-pressed="false">◐ In progress</button>
+      <button type="button" class="filter-pill" data-filter-group="status" data-filter-value="settled" aria-pressed="false">● Settled</button>
+    </div>
+
+    <div class="filter-group" role="group" aria-label="Filter reviews by media category">
+      <span class="filter-group-label">Media</span>
+      <button type="button" class="filter-pill active" data-filter-group="media" data-filter-value="all" aria-pressed="true">All media</button>
+      <button type="button" class="filter-pill" data-filter-group="media" data-filter-value="book" aria-pressed="false">Book</button>
+      <button type="button" class="filter-pill" data-filter-group="media" data-filter-value="podcast" aria-pressed="false">Podcast</button>
+      <button type="button" class="filter-pill" data-filter-group="media" data-filter-value="tv" aria-pressed="false">TV</button>
+      <button type="button" class="filter-pill" data-filter-group="media" data-filter-value="film" aria-pressed="false">Film</button>
+      <button type="button" class="filter-pill" data-filter-group="media" data-filter-value="game" aria-pressed="false">Game</button>
+    </div>
+  </div>
+
+  <div id="garden-grid" class="garden-grid">
+    {% for post in site.posts %}
+      {% include garden_card.html post=post %}
+    {% endfor %}
+  </div>
+
+  <div id="garden-empty-state" class="garden-empty-state" hidden>
+    <p>No garden entries match the selected stream, stage, and media filters.</p>
+    <button type="button" id="garden-reset-filters" class="filter-pill">Reset filters</button>
+  </div>
+</section>
+
+<section class="garden-zone-b" aria-label="Recent weeknotes and topics">
+  <div class="weeknotes-stream">
+    <h2 class="zone-b-heading">Recent Weeknotes</h2>
+    <p class="zone-b-sub">Regular weekly reflections on work in progress (&ldquo;the flow&rdquo;).</p>
+    <ul class="weeknotes-list">
+      {% assign weeknote_count = 0 %}
+      {% for post in site.posts %}
+        {% assign raw_type = post.type | downcase | strip %}
+        {% if raw_type == "reading" %}
+          {% assign resolved_type = "review" %}
+        {% elsif raw_type == "essay" or raw_type == "note" or raw_type == "review" or raw_type == "weeknote" %}
+          {% assign resolved_type = raw_type %}
+        {% elsif post.media and post.media != "" %}
+          {% assign resolved_type = "review" %}
+        {% elsif post.rating and post.rating != "" %}
+          {% assign resolved_type = "review" %}
+        {% elsif post.tags contains "weeknotes" %}
+          {% assign resolved_type = "weeknote" %}
+        {% else %}
+          {% assign resolved_type = "note" %}
+        {% endif %}
+        {% if resolved_type == "weeknote" and weeknote_count < 5 %}
+          <li class="weeknotes-item">
+            <a class="weeknotes-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <time class="weeknotes-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
+          </li>
+          {% assign weeknote_count = weeknote_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <a class="zone-b-footer-link" href="{{ '/archive/' | relative_url }}">Browse full chronological archive &rarr;</a>
+  </div>
+
+  <aside class="topics-box" aria-labelledby="explore-topics-heading">
+    <h2 id="explore-topics-heading" class="zone-b-heading">Explore by Topic</h2>
+    <p class="zone-b-sub">Jump directly to notes and essays grouped by theme.</p>
+    {% assign sorted_tags = site.tags | sort %}
+    <div class="topics-cloud">
+      {% for tag in sorted_tags %}
+        {% assign tag_name = tag[0] %}
+        {% assign tag_posts = tag[1] %}
+        <a class="topic-pill" href="{{ '/tags/' | relative_url }}#{{ tag_name | slugify }}">
+          #{{ tag_name }} <span class="topic-pill-count">({{ tag_posts.size }})</span>
+        </a>
+      {% endfor %}
+    </div>
+    <a class="zone-b-footer-link" href="{{ '/tags/' | relative_url }}">View all topics &rarr;</a>
+  </aside>
+</section>

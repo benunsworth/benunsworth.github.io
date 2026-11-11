@@ -1015,3 +1015,287 @@ a.pagination-item:hover {
   text-decoration: none;
 }
 
+
+/*
+ * Batch 3: Zoned "Stock & Flow" Digital Garden Homepage
+ * Intro Banner, Filter Bar, & Zone B (Weeknotes Stream + Explore by Topic)
+ */
+
+.garden-intro {
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 2.25rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 6px;
+}
+
+.garden-intro-title {
+  margin-top: 0;
+  margin-bottom: .45rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.garden-intro-lead {
+  margin-top: 0;
+  margin-bottom: .9rem;
+  font-size: .98rem;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+.garden-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem 1rem;
+  padding-top: .75rem;
+  border-top: 1px solid var(--color-border-subtle);
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .8rem;
+  color: var(--color-muted);
+}
+
+.garden-legend-label {
+  font-weight: 700;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: .72rem;
+}
+
+.garden-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+}
+
+.garden-zone {
+  margin-bottom: 2.75rem;
+}
+
+.garden-zone-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .4rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.garden-zone-title {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.garden-count {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .84rem;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.garden-filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+  padding: .9rem 1rem;
+  margin-bottom: 1.35rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem .45rem;
+}
+
+.filter-group-label {
+  min-width: 3.8rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .74rem;
+  font-weight: 700;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  padding: .24rem .62rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.filter-pill:hover {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-muted);
+}
+
+.filter-pill.active,
+.filter-pill[aria-pressed="true"] {
+  color: #fff;
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.garden-card[hidden] {
+  display: none !important;
+}
+
+.garden-empty-state {
+  padding: 1.5rem;
+  text-align: center;
+  background-color: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: 6px;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  color: var(--color-muted);
+}
+
+.garden-empty-state p {
+  margin-top: 0;
+  margin-bottom: .75rem;
+}
+
+.garden-zone-b {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  margin-bottom: 3rem;
+  border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 38em) {
+  .garden-zone-b {
+    grid-template-columns: 1.35fr 1fr;
+    align-items: start;
+  }
+}
+
+.weeknotes-stream,
+.topics-box {
+  padding: 1.15rem 1.25rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.zone-b-heading {
+  margin-top: 0;
+  margin-bottom: .35rem;
+  font-size: 1.1rem;
+}
+
+.zone-b-sub {
+  margin-top: 0;
+  margin-bottom: .9rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .82rem;
+  color: var(--color-muted);
+}
+
+.weeknotes-list {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: .85rem;
+  list-style: none;
+}
+
+.weeknotes-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .25rem .75rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.weeknotes-item:first-child {
+  padding-top: 0;
+}
+
+.weeknotes-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.weeknotes-link {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: .92rem;
+  color: var(--color-text);
+}
+
+.weeknotes-link:hover,
+.weeknotes-link:focus {
+  color: var(--color-accent);
+}
+
+.weeknotes-date {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .78rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.zone-b-footer-link {
+  display: inline-block;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.topics-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-bottom: .9rem;
+}
+
+.topic-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  padding: .22rem .55rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.topic-pill:hover,
+.topic-pill:focus {
+  color: #fff;
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  text-decoration: none;
+}
+
+.topic-pill-count {
+  font-size: .72rem;
+  font-weight: 400;
+  opacity: .8;
+}
+
