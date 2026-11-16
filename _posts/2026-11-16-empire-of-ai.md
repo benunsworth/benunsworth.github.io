@@ -8,7 +8,7 @@ media: book
 rating: 5
 image: /public/images/empire-of-ai.webp
 image_alt: "Book cover of Empire of AI by Karen Hao"
-summary: "Fascinating parallels with current big tech shenanigans: for all the claims about safety, it's the same winner-takes-all power playbook as every VC-backed firm."
+summary: "Fascinating parallels with current big tech shenanigans: for all the claims about safety, it's the same winner-takes-all playbook as every VC-backed firm."
 ---
 
 The book has been out for a while, but fascinating parallels with the current big tech shenanigans &mdash; remember when Sam Altman got sacked from what was then the most important AI company? Is this a rite of passage for playing at the frontier? The stakes are too high, we must bring him back, etc.
