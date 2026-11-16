@@ -64,6 +64,8 @@ As this site evolves from a chronological blog into a **Digital Garden**, all ga
 - `updated` — Optional `YYYY-MM-DD` date indicating when an older note, essay, or review was last revisited and tended ("Last tended").
 
 ### How to Implement Digital Garden Features in Pure Liquid
+- **Editorial Magazine Grid Rhythm & Spans:** Posts with `type: essay` or `featured: true` automatically span both columns (`grid-column: 1 / -1`) on viewports `>= 38em` with enhanced typographic hierarchy (`1.38rem` titles, generous `1.35rem 1.5rem` padding, and `42`-word summary truncation), while notes, weeknotes, and reviews sit compactly in 1-column pairs. When `compact=true` is passed to `_includes/garden_card.html` (e.g., in `_includes/backlinks.html`), cards remain strictly compact 1-column cards regardless of stream type or featured status.
+- **Tactile Card Polish:** Cards feature subtle tactile elevation on hover (`transform: translateY(-2px)` and soft shadow `rgba(16, 15, 15, 0.06)`), strictly guarded by `@media (prefers-reduced-motion: no-preference)` and fully disabled under `prefers-reduced-motion: reduce`.
 - **Stream, Media & Status Filtering:** Render `data-type`, `data-status`, and `data-media` attributes on post cards in Liquid so pages can be filtered both via static collection pages and instant vanilla JS toggles.
 - **Bidirectional Links (Backlinks):** Never use a Ruby plugin for backlinks. Instead, compute incoming links in pure Liquid within `_layouts/post.html` or an `_includes/backlinks.html` partial by checking `site.posts` where `post.url != page.url` and `post.content contains page.url`.
 - **Callouts & Margin Notes:** Use standard Markdown blockquotes or semantic HTML `<aside class="callout">` styled in CSS rather than custom Liquid tags.

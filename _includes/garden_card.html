@@ -28,10 +28,22 @@
   {%- assign resolved_media = "" -%}
 {%- endif -%}
 
+{%- assign is_featured = false -%}
+{%- if include.compact != true and include.compact != "true" -%}
+  {%- if resolved_type == "essay" or card_post.featured == true or card_post.featured == "true" -%}
+    {%- assign is_featured = true -%}
+  {%- endif -%}
+{%- endif -%}
+{%- assign is_wide_card = is_featured -%}
+
 {%- if card_post.summary and card_post.summary != "" -%}
   {%- assign card_summary = card_post.summary -%}
 {%- else -%}
-  {%- assign card_summary = card_post.excerpt | default: card_post.content | strip_html | normalize_whitespace | truncatewords: 28 -%}
+  {%- if is_featured -%}
+    {%- assign card_summary = card_post.excerpt | default: card_post.content | strip_html | normalize_whitespace | truncatewords: 42 -%}
+  {%- else -%}
+    {%- assign card_summary = card_post.excerpt | default: card_post.content | strip_html | normalize_whitespace | truncatewords: 28 -%}
+  {%- endif -%}
 {%- endif -%}
 
 {%- assign card_image_path = "" -%}
@@ -49,15 +61,10 @@
   {%- assign card_image_path = "" -%}
 {%- endif -%}
 
-{%- assign is_wide_card = false -%}
-{%- if resolved_type == "essay" or card_post.featured == true -%}
-  {%- assign is_wide_card = true -%}
-{%- endif -%}
-
 {%- assign card_classes = "garden-card" -%}
 {%- assign card_media_mode = "none" -%}
-{%- if is_wide_card -%}
-  {%- assign card_classes = card_classes | append: " garden-card--wide" -%}
+{%- if is_featured -%}
+  {%- assign card_classes = card_classes | append: " garden-card--featured garden-card--wide" -%}
   {%- if card_image_path != "" -%}
     {%- assign card_classes = card_classes | append: " garden-card--split" -%}
     {%- assign card_media_mode = "split" -%}
@@ -72,63 +79,60 @@
   {%- endif -%}
 {%- endif -%}
 
-<article class="{{ card_classes }}" data-type="{{ resolved_type }}" data-status="{{ resolved_status }}" data-media="{{ resolved_media }}">
+<article class="{{ card_classes }}" data-type="{{ resolved_type }}" data-status="{{ resolved_status }}" data-media="{{ resolved_media }}"{% if is_featured %} data-featured="true"{% endif %}>
   {%- if card_media_mode == "split" -%}
   <div class="garden-card-media garden-card-media--split">
     <img src="{{ card_image_path | relative_url }}" alt="{{ card_image_alt | escape }}" loading="lazy">
   </div>
-  <div class="garden-card-inner">
   {%- elsif card_media_mode == "top" -%}
   <div class="garden-card-media garden-card-media--top">
     <img src="{{ card_image_path | relative_url }}" alt="{{ card_image_alt | escape }}" loading="lazy">
   </div>
   {%- endif -%}
 
-  <div class="garden-card-body">
-    {%- if card_media_mode == "book" -%}
-    <div class="garden-card-review-row">
-      <div class="garden-card-media garden-card-media--book">
-        <img src="{{ card_image_path | relative_url }}" alt="{{ card_image_alt | escape }}" loading="lazy">
+  <div class="garden-card-inner">
+    <div class="garden-card-body">
+      {%- if card_media_mode == "book" -%}
+      <div class="garden-card-review-row">
+        <div class="garden-card-media garden-card-media--book">
+          <img src="{{ card_image_path | relative_url }}" alt="{{ card_image_alt | escape }}" loading="lazy">
+        </div>
+        <div class="garden-card-review-content">
+      {%- endif -%}
+
+      {%- if include.context_label and include.context_label != "" -%}
+      <div class="garden-card-context">{{ include.context_label }}</div>
+      {%- endif -%}
+      <div class="garden-card-meta">
+        {% include post_meta_badges.html post=card_post %}
       </div>
-      <div class="garden-card-review-content">
-    {%- endif -%}
+      <h3 class="garden-card-title">
+        <a class="garden-card-link" href="{{ card_post.url | relative_url }}">{{ card_post.title }}</a>
+      </h3>
+      {%- if card_summary != "" -%}
+      <p class="garden-card-summary">{{ card_summary }}</p>
+      {%- endif -%}
 
-    {%- if include.context_label and include.context_label != "" -%}
-    <div class="garden-card-context">{{ include.context_label }}</div>
-    {%- endif -%}
-    <div class="garden-card-meta">
-      {% include post_meta_badges.html post=card_post %}
-    </div>
-    <h3 class="garden-card-title">
-      <a class="garden-card-link" href="{{ card_post.url | relative_url }}">{{ card_post.title }}</a>
-    </h3>
-    {%- if card_summary != "" -%}
-    <p class="garden-card-summary">{{ card_summary }}</p>
-    {%- endif -%}
-
-    {%- if card_media_mode == "book" -%}
+      {%- if card_media_mode == "book" -%}
+        </div>
       </div>
-    </div>
-    {%- endif -%}
-  </div>
-
-  <div class="garden-card-footer">
-    <div class="garden-card-dates">
-      <span>Planted <time datetime="{{ card_post.date | date_to_xmlschema }}">{{ card_post.date | date_to_string }}</time></span>
-      {%- if card_post.updated and card_post.updated != "" -%}
-      <span class="garden-card-updated">&middot; Tended <time datetime="{{ card_post.updated | date: '%Y-%m-%d' }}">{{ card_post.updated | date_to_string }}</time></span>
       {%- endif -%}
     </div>
-    {%- if card_post.tags and card_post.tags.size > 0 -%}
-    <div class="garden-card-tags">
-      {%- for tag in card_post.tags -%}
-      <a class="topic-tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">#{{ tag }}</a>
-      {%- endfor -%}
-    </div>
-    {%- endif -%}
-  </div>
 
-  {%- if card_media_mode == "split" -%}
+    <div class="garden-card-footer">
+      <div class="garden-card-dates">
+        <span>Planted <time datetime="{{ card_post.date | date_to_xmlschema }}">{{ card_post.date | date_to_string }}</time></span>
+        {%- if card_post.updated and card_post.updated != "" -%}
+        <span class="garden-card-updated">&middot; Tended <time datetime="{{ card_post.updated | date: '%Y-%m-%d' }}">{{ card_post.updated | date_to_string }}</time></span>
+        {%- endif -%}
+      </div>
+      {%- if card_post.tags and card_post.tags.size > 0 -%}
+      <div class="garden-card-tags">
+        {%- for tag in card_post.tags -%}
+        <a class="topic-tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">#{{ tag }}</a>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+    </div>
   </div>
-  {%- endif -%}
 </article>

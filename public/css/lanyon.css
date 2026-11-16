@@ -909,6 +909,13 @@ a.pagination-item:hover {
   .garden-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  /* Batch 6: 2-Column Editorial Magazine Grid Rhythm */
+  .garden-grid > .garden-card--featured,
+  .garden-grid > .garden-card--wide,
+  .garden-grid > .garden-card[data-type="essay"] {
+    grid-column: 1 / -1;
+  }
 }
 
 .garden-card {
@@ -919,11 +926,27 @@ a.pagination-item:hover {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 6px;
-  transition: background-color .15s ease, border-color .15s ease;
+  transition: background-color .15s ease, border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  min-width: 0;
 }
 
 .garden-card:hover {
   background-color: var(--color-surface-hover);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .garden-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(16, 15, 15, 0.06);
+  }
+}
+
+.garden-card-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .garden-card[data-status="rough"] {
@@ -980,6 +1003,28 @@ a.pagination-item:hover {
   font-size: .92rem;
   color: var(--color-text);
   line-height: 1.5;
+}
+
+/* Editorial Magazine Rhythm: Scaled-up Headline & Breathing Room */
+.garden-card--featured,
+.garden-card--wide,
+.garden-card[data-type="essay"] {
+  padding: 1.35rem 1.5rem;
+}
+
+.garden-card--featured .garden-card-title,
+.garden-card--wide .garden-card-title,
+.garden-card[data-type="essay"] .garden-card-title {
+  font-size: 1.38rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.garden-card--featured .garden-card-summary,
+.garden-card--wide .garden-card-summary,
+.garden-card[data-type="essay"] .garden-card-summary {
+  font-size: 1rem;
+  line-height: 1.55;
 }
 
 .garden-card-footer {
@@ -1487,8 +1532,10 @@ aside.callout p:last-child,
  */
 
 @media (min-width: 38em) {
-  .garden-grid .garden-card--wide {
-    grid-column: span 2;
+  .garden-grid .garden-card--wide,
+  .garden-grid .garden-card--featured,
+  .garden-grid > .garden-card[data-type="essay"] {
+    grid-column: 1 / -1;
   }
 }
 
@@ -1521,7 +1568,7 @@ aside.callout p:last-child,
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
-  padding: 1.15rem 1.25rem;
+  padding: 1.35rem 1.5rem;
   min-width: 0;
 }
 
@@ -1679,6 +1726,12 @@ aside.callout p:last-child,
   .filter-pill,
   .topic-pill {
     transition: none;
+    transform: none;
+  }
+
+  .garden-card:hover {
+    transform: none;
+    box-shadow: none;
   }
 }
 

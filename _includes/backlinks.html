@@ -13,7 +13,7 @@
   {%- for post in site.posts -%}
     {%- if post.url != page.url -%}
       {%- if post.content contains page.url or post.content contains page_url_trimmed -%}
-        {% include garden_card.html post=post context_label="← Links to this note" %}
+        {% include garden_card.html post=post context_label="← Links to this note" compact=true %}
         {%- assign card_count = card_count | plus: 1 -%}
         {%- assign rendered_urls = rendered_urls | append: post.url | append: "|" -%}
       {%- endif -%}
@@ -36,7 +36,7 @@
           {%- endif -%}
           {%- if shared_tag != "" -%}
             {%- assign context_label_text = "Connected · #" | append: shared_tag -%}
-            {% include garden_card.html post=post context_label=context_label_text %}
+            {% include garden_card.html post=post context_label=context_label_text compact=true %}
             {%- assign card_count = card_count | plus: 1 -%}
             {%- assign rendered_urls = rendered_urls | append: post.url | append: "|" -%}
           {%- endif -%}
