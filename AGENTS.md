@@ -55,9 +55,9 @@ As this site evolves from a chronological blog into a **Digital Garden**, all ga
 
 ### Development Stage (`status`) & Precision Vector Glyphs
 - Development stages are rendered visually with pure Liquid 10×10px inline vector SVGs (`_includes/status_glyph.html`) rather than font-dependent Unicode characters (`◌`, `◐`, `●`), guaranteeing identical optical weight and alignment across all devices:
-  - `rough` (`Rough`) — Early thinking, scratchpad notes, or a working hypothesis shared openly. Rendered as a dashed 10px SVG circle (`stroke-dasharray="2.2 1.8"`). Cards use a subtle dashed border (`data-status="rough"`), and post pages display an automatic "Working in the open" notice banner styled with a 16px glyph.
-  - `in-progress` (`In progress`) — Actively being shaped, tested, or added to over time. Rendered as a half-filled 10px SVG circle (`stroke-width="1.3"` outline + filled left semicircle).
-  - `settled` (`Settled`) — Well-formed thinking or a completed reflection. Rendered as a solid 10px SVG circle (`r="4.4" fill="currentColor"`).
+  - `rough` (`Rough`) — Early thinking. Rendered as a dashed 10px SVG circle (`stroke-dasharray="2.2 1.8"`). Cards use a subtle dashed border (`data-status="rough"`), and post pages display an automatic "Working in the open" notice banner styled with a 16px glyph.
+  - `in-progress` (`In progress`) — Might come back to. Rendered as a half-filled 10px SVG circle (`stroke-width="1.3"` outline + filled left semicircle).
+  - `settled` (`Settled`) — Probably won't return to this. Rendered as a solid 10px SVG circle (`r="4.4" fill="currentColor"`).
 
 ### Dates (`date` and `updated`)
 - `date` — Original publication ("Planted") date (automatically derived from `YYYY-MM-DD` in the `_posts/` filename unless overridden).
