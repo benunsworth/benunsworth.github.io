@@ -1,0 +1,72 @@
+name: Publish from Notion
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (validate without writing files or updating Notion)'
+        required: false
+        default: false
+        type: boolean
+      page_id:
+        description: 'Optional Notion Page ID (sync only this specific page)'
+        required: false
+        default: ''
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: notion-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Sync & Publish Notion Posts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install notion-client requests Pillow
+
+      - name: Run Notion sync script
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: |
+          ARGS=()
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "Running in dry-run mode..."
+            ARGS+=(--dry-run)
+          fi
+          if [ -n "${{ inputs.page_id }}" ]; then
+            echo "Targeting specific Notion page ID: ${{ inputs.page_id }}"
+            ARGS+=(--page-id "${{ inputs.page_id }}")
+          fi
+          python3 .github/scripts/notion_sync.py "${ARGS[@]}"
+
+      - name: Commit and push new posts & images
+        run: |
+          if [ -n "$(git status --porcelain _posts/ public/images/)" ]; then
+            echo "New posts or images detected. Committing changes..."
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add _posts/ public/images/
+            git commit -m "Publish: New post from Notion [skip ci]"
+            git push origin main
+            echo "Successfully published and pushed changes to main."
+          else
+            echo "No new or modified posts or images to commit. Working tree clean."
+          fi
