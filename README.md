@@ -33,6 +33,13 @@ tags: [weeknotes, local-government, ai, service-design]
 
 *(Any new tag added to front matter will automatically appear on the [Tags](/tags/) page.)*
 
+### Mobile Publishing via Notion & iOS Shortcut
+
+In addition to writing Markdown files directly in git, you can draft posts on mobile or desktop in Notion and publish on-demand with a single tap:
+
+1. [**Notion Database Setup Guide**](docs/notion-database-setup.md) — Database schema, integration token, and automated property verification.
+2. [**iOS Shortcut & Mobile Publishing Setup Guide**](docs/notion-mobile-publishing-setup.md) — One-tap publishing from iPhone Home Screen, Action Button, Control Center, or GitHub Mobile.
+
 ---
 
 ## Site Features & Architecture

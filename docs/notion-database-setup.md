@@ -125,3 +125,9 @@ The database is 100% ready for the mobile publishing sync pipeline.
 - **Create an "Add Post" Template:** In Notion database settings, create a template with `Type: note` and `Status: rough` pre-filled.
 - **Photos & Images:** Drop photos directly into the Notion page body from your iPhone camera roll. Add an accessible caption in Notion (click image -> Caption); the sync script will download, resize, and convert it into an accessible `![alt](/public/images/posts/...)` markdown image.
 - **Ready to Publish:** When you are ready to ship, simply switch `Publish State` to `Ready to Publish`.
+
+---
+
+## 4. Next Step: One-Tap Mobile Publishing
+
+Once your Notion database and secrets are configured, follow the [**One-Tap iOS Shortcut & Mobile Setup Guide**](notion-mobile-publishing-setup.md) to set up single-tap publishing from your iPhone Home Screen, Control Center, or Action Button.
