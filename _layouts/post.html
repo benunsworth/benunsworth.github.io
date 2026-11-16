@@ -2,22 +2,52 @@
 layout: default
 ---
 
+{%- assign post_image_path = "" -%}
+{%- assign post_image_alt = "" -%}
+{%- if page.image -%}
+  {%- if page.image.path -%}
+    {%- assign post_image_path = page.image.path | strip -%}
+    {%- assign post_image_alt = page.image.alt | default: page.image_alt | default: page.title -%}
+  {%- else -%}
+    {%- assign post_image_path = page.image | strip -%}
+    {%- assign post_image_alt = page.image_alt | default: page.title -%}
+  {%- endif -%}
+{%- endif -%}
+{%- if post_image_path == "/public/images/default-social-card.png" or post_image_path == "public/images/default-social-card.png" -%}
+  {%- assign post_image_path = "" -%}
+{%- endif -%}
+
+{%- assign raw_type = page.type | downcase | strip -%}
+{%- assign is_review_post = false -%}
+{%- if raw_type == "review" or raw_type == "reading" or page.media or page.rating -%}
+  {%- assign is_review_post = true -%}
+{%- endif -%}
+
 <article class="post">
-  <header class="post-header">
-    <div class="post-header-badges">
-      {% include post_meta_badges.html post=page %}
+  <header class="post-header{% if post_image_path != '' and is_review_post %} post-header--with-jacket{% endif %}">
+    {%- if post_image_path != "" and is_review_post -%}
+    <div class="post-lead-jacket">
+      <img src="{{ post_image_path | relative_url }}" alt="{{ post_image_alt | escape }}">
     </div>
-    <h1 class="post-title">{{ page.title }}</h1>
-    <div class="post-date">
-      <span>Planted <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time></span>
-      {%- if page.updated and page.updated != "" -%}
-      <span class="post-updated">&middot; Last tended <time datetime="{{ page.updated | date: '%Y-%m-%d' }}">{{ page.updated | date_to_string }}</time></span>
+    <div class="post-header-main">
+    {%- endif -%}
+      <div class="post-header-badges">
+        {% include post_meta_badges.html post=page %}
+      </div>
+      <h1 class="post-title">{{ page.title }}</h1>
+      <div class="post-date">
+        <span>Planted <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time></span>
+        {%- if page.updated and page.updated != "" -%}
+        <span class="post-updated">&middot; Last tended <time datetime="{{ page.updated | date: '%Y-%m-%d' }}">{{ page.updated | date_to_string }}</time></span>
+        {%- endif -%}
+        <span>&middot; {% include reading_time.html content=content %}</span>
+      </div>
+      {%- if page.tags and page.tags.size > 0 -%}
+      <div class="post-header-tags">
+        {% include post_tags.html tags=page.tags %}
+      </div>
       {%- endif -%}
-      <span>&middot; {% include reading_time.html content=content %}</span>
-    </div>
-    {%- if page.tags and page.tags.size > 0 -%}
-    <div class="post-header-tags">
-      {% include post_tags.html tags=page.tags %}
+    {%- if post_image_path != "" and is_review_post -%}
     </div>
     {%- endif -%}
   </header>
@@ -30,6 +60,12 @@ layout: default
       <strong>Working in the open &mdash; Rough note.</strong> This is early thinking, a scratchpad note, or a working hypothesis shared before it is fully formed. It may evolve as ideas are tested.
     </div>
   </aside>
+  {%- endif -%}
+
+  {%- if post_image_path != "" and is_review_post == false -%}
+  <figure class="post-lead-media">
+    <img src="{{ post_image_path | relative_url }}" alt="{{ post_image_alt | escape }}">
+  </figure>
   {%- endif -%}
 
   {{ content }}

@@ -34,8 +34,65 @@
   {%- assign card_summary = card_post.excerpt | default: card_post.content | strip_html | normalize_whitespace | truncatewords: 28 -%}
 {%- endif -%}
 
-<article class="garden-card" data-type="{{ resolved_type }}" data-status="{{ resolved_status }}" data-media="{{ resolved_media }}">
+{%- assign card_image_path = "" -%}
+{%- assign card_image_alt = "" -%}
+{%- if card_post.image -%}
+  {%- if card_post.image.path -%}
+    {%- assign card_image_path = card_post.image.path | strip -%}
+    {%- assign card_image_alt = card_post.image.alt | default: card_post.image_alt | default: card_post.title -%}
+  {%- else -%}
+    {%- assign card_image_path = card_post.image | strip -%}
+    {%- assign card_image_alt = card_post.image_alt | default: card_post.title -%}
+  {%- endif -%}
+{%- endif -%}
+{%- if card_image_path == "/public/images/default-social-card.png" or card_image_path == "public/images/default-social-card.png" -%}
+  {%- assign card_image_path = "" -%}
+{%- endif -%}
+
+{%- assign is_wide_card = false -%}
+{%- if resolved_type == "essay" or card_post.featured == true -%}
+  {%- assign is_wide_card = true -%}
+{%- endif -%}
+
+{%- assign card_classes = "garden-card" -%}
+{%- assign card_media_mode = "none" -%}
+{%- if is_wide_card -%}
+  {%- assign card_classes = card_classes | append: " garden-card--wide" -%}
+  {%- if card_image_path != "" -%}
+    {%- assign card_classes = card_classes | append: " garden-card--split" -%}
+    {%- assign card_media_mode = "split" -%}
+  {%- endif -%}
+{%- elsif card_image_path != "" -%}
+  {%- if resolved_type == "review" -%}
+    {%- assign card_classes = card_classes | append: " garden-card--media-compact" -%}
+    {%- assign card_media_mode = "book" -%}
+  {%- else -%}
+    {%- assign card_classes = card_classes | append: " garden-card--banner" -%}
+    {%- assign card_media_mode = "top" -%}
+  {%- endif -%}
+{%- endif -%}
+
+<article class="{{ card_classes }}" data-type="{{ resolved_type }}" data-status="{{ resolved_status }}" data-media="{{ resolved_media }}">
+  {%- if card_media_mode == "split" -%}
+  <div class="garden-card-media garden-card-media--split">
+    <img src="{{ card_image_path | relative_url }}" alt="{{ card_image_alt | escape }}" loading="lazy">
+  </div>
+  <div class="garden-card-inner">
+  {%- elsif card_media_mode == "top" -%}
+  <div class="garden-card-media garden-card-media--top">
+    <img src="{{ card_image_path | relative_url }}" alt="{{ card_image_alt | escape }}" loading="lazy">
+  </div>
+  {%- endif -%}
+
   <div class="garden-card-body">
+    {%- if card_media_mode == "book" -%}
+    <div class="garden-card-review-row">
+      <div class="garden-card-media garden-card-media--book">
+        <img src="{{ card_image_path | relative_url }}" alt="{{ card_image_alt | escape }}" loading="lazy">
+      </div>
+      <div class="garden-card-review-content">
+    {%- endif -%}
+
     {%- if include.context_label and include.context_label != "" -%}
     <div class="garden-card-context">{{ include.context_label }}</div>
     {%- endif -%}
@@ -47,6 +104,11 @@
     </h3>
     {%- if card_summary != "" -%}
     <p class="garden-card-summary">{{ card_summary }}</p>
+    {%- endif -%}
+
+    {%- if card_media_mode == "book" -%}
+      </div>
+    </div>
     {%- endif -%}
   </div>
 
@@ -65,4 +127,8 @@
     </div>
     {%- endif -%}
   </div>
+
+  {%- if card_media_mode == "split" -%}
+  </div>
+  {%- endif -%}
 </article>

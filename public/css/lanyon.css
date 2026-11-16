@@ -1482,3 +1482,204 @@ aside.callout p:last-child,
 }
 
 
+/*
+ * Batch 7: Responsive Card Images, Book Jackets & Post Lead Media
+ */
+
+@media (min-width: 38em) {
+  .garden-grid .garden-card--wide {
+    grid-column: span 2;
+  }
+}
+
+/* Treatment A: Wide 2-Column Split (.garden-card--split) */
+.garden-card--split {
+  padding: 0;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.garden-card-media--split {
+  width: 100%;
+  height: 185px;
+  overflow: hidden;
+  background-color: var(--color-surface-hover);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.garden-card-media--split img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 0;
+}
+
+.garden-card--split .garden-card-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: 1.15rem 1.25rem;
+  min-width: 0;
+}
+
+@media (min-width: 48em) {
+  .garden-card--split {
+    flex-direction: row;
+  }
+
+  .garden-card-media--split {
+    width: 38%;
+    height: auto;
+    min-height: 220px;
+    flex-shrink: 0;
+    border-bottom: none;
+    border-right: 1px solid var(--color-border-subtle);
+  }
+
+  .garden-card--split .garden-card-inner {
+    width: 62%;
+  }
+}
+
+/* Treatment B: Review Book / Media Jacket (.garden-card--media-compact) */
+.garden-card-review-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.garden-card-media--book {
+  width: 85px;
+  height: 125px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 6px rgba(16, 15, 15, 0.08);
+  background-color: var(--color-bg);
+}
+
+.garden-card-media--book img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 0;
+}
+
+.garden-card-review-content {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 24em) {
+  .garden-card-media--book {
+    width: 70px;
+    height: 104px;
+  }
+}
+
+/* Treatment C: Top Banner (.garden-card--banner) */
+.garden-card--banner {
+  padding: 0;
+  overflow: hidden;
+}
+
+.garden-card-media--top {
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border-subtle);
+  background-color: var(--color-surface-hover);
+}
+
+.garden-card-media--top img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 0;
+}
+
+.garden-card--banner .garden-card-body {
+  padding: 1.05rem 1.25rem 0;
+}
+
+.garden-card--banner .garden-card-footer {
+  padding: .65rem 1.25rem 1.15rem;
+  margin-top: auto;
+}
+
+/* Post Page Lead & Review Jacket Media (_layouts/post.html) */
+.post-header--with-jacket {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.post-lead-jacket {
+  width: 110px;
+  height: 162px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 3px 10px rgba(16, 15, 15, 0.08);
+  background-color: var(--color-surface);
+}
+
+.post-lead-jacket img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 0;
+}
+
+.post-header-main {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 34em) {
+  .post-header--with-jacket {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.35rem;
+  }
+}
+
+.post-lead-media {
+  margin: 0 0 1.6rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.post-lead-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .garden-card,
+  .topic-tag,
+  .filter-pill,
+  .topic-pill {
+    transition: none;
+  }
+}
+
+

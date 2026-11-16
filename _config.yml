@@ -30,8 +30,12 @@ plugins:
 version:             1.1.0
 google_analytics_id: G-0J73RYL13Y
 
-# Default front matter for posts
+# Default front matter for all pages/posts and posts specifically
 defaults:
+  - scope:
+      path: ""
+    values:
+      image: /public/images/default-social-card.png
   - scope:
       path: ""
       type: "posts"

@@ -84,10 +84,14 @@ status: settled                                     # Optional: rough | in-progr
 media: book                                         # Optional (for reviews): book | podcast | tv | film | game
 rating: 4.5                                         # Optional (for reviews): 0.5 to 5 in 0.5 increments
 updated: 2026-11-11                                 # Optional: YYYY-MM-DD date when last tended
+featured: true                                      # Optional: span 2 columns in the homepage Garden grid
+image: /public/images/example.jpg                   # Optional: string path OR { path: ..., alt: "..." } object
+image_alt: "Descriptive alt text for the image."    # Optional: alt fallback when image is a string (defaults to title)
 summary: "One-sentence summary for cards and SEO."  # Optional: used in cards/previews if present
 ---
 ```
 
+- **Open Graph & Social Card Fallback:** `_config.yml` defaults `image` to `/public/images/default-social-card.png` (`1200×630` Inky Flexoki card) so `jekyll-seo-tag` emits `<meta property="og:image">` and `twitter:card` (`summary_large_image`) on every page and post. Both `_includes/garden_card.html` and `_layouts/post.html` ignore `default-social-card.png` so text-only posts remain clean text cards in the Garden grid.
 - **Tag Naming Convention:** Lowercase, hyphen-separated (`weeknotes`, `local-government`, `service-design`, `ai`, `technology`, `leadership`, `open-working`).
 
 ---
