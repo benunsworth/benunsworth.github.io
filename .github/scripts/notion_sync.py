@@ -207,6 +207,23 @@ def render_rich_text(rich_text_array: list) -> str:
 # Image Handling & Pillow Optimization
 # ---------------------------------------------------------------------------
 
+def get_jekyll_image_path(dest_path: Path | str) -> str:
+    """
+    Given a local destination path for a post image, return the canonical
+    Jekyll root-relative URL path starting with '/public/...'.
+    Guarantees no duplicate '/public/public/' prefix regardless of whether dest_path
+    is relative, absolute, has leading slashes, or contains redundant segments.
+    """
+    posix_path = Path(dest_path).as_posix().lstrip("/")
+    if "images/" in posix_path:
+        sub_path = posix_path.split("images/", 1)[-1]
+        return f"/public/images/{sub_path}"
+    if "public/" in posix_path:
+        sub_path = posix_path.split("public/", 1)[-1].lstrip("/")
+        return f"/public/{sub_path}"
+    return f"/public/{posix_path}"
+
+
 def download_and_optimize_image(
     image_url: str,
     output_dir: Path,
@@ -263,8 +280,7 @@ def download_and_optimize_image(
             f.write(raw_bytes)
 
     # Determine Jekyll-relative path (e.g. /public/images/posts/2026/slug-1.jpg)
-    rel_path = "/" + str(dest_path.as_posix()).split("/public/", 1)[-1]
-    rel_path = f"/public/{rel_path.lstrip('/')}"
+    rel_path = get_jekyll_image_path(dest_path)
     return rel_path, str(dest_path)
 
 

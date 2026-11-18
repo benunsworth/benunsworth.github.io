@@ -41,6 +41,10 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install notion-client requests Pillow
 
+      - name: Run sync script unit tests
+        run: |
+          python3 .github/scripts/test_notion_sync.py
+
       - name: Run Notion sync script
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
@@ -56,6 +60,43 @@ jobs:
             ARGS+=(--page-id "${{ inputs.page_id }}")
           fi
           python3 .github/scripts/notion_sync.py "${ARGS[@]}"
+
+      - name: Validate generated post assets & links
+        run: |
+          python3 - << 'EOF'
+          import glob, os, re, sys
+
+          errors = []
+          post_files = sorted(glob.glob("_posts/*.md"))
+          for path in post_files:
+              with open(path, "r", encoding="utf-8") as fh:
+                  content = fh.read()
+
+              if "/public/public/" in content:
+                  errors.append(f"{path}: contains duplicated '/public/public/' path")
+
+              # Validate front matter image exists on disk
+              for m in re.finditer(r"^image:\s*(.+)$", content, re.MULTILINE):
+                  val = m.group(1).strip().strip("'\"")
+                  if val.startswith("/public/"):
+                      local_target = val.lstrip("/")
+                      if not os.path.isfile(local_target):
+                          errors.append(f"{path}: front matter image '{val}' does not exist on disk at '{local_target}'")
+
+              # Validate inline markdown images exist on disk
+              for m in re.finditer(r"!\[.*?\]\((/public/[^)\s]+)\)", content):
+                  val = m.group(1).strip()
+                  local_target = val.lstrip("/")
+                  if not os.path.isfile(local_target):
+                      errors.append(f"{path}: markdown image '{val}' does not exist on disk at '{local_target}'")
+
+          if errors:
+              print("Post image link validation failed:")
+              for e in errors:
+                  print("  -", e)
+              sys.exit(1)
+          print(f"Validated all post image links across {len(post_files)} posts.")
+          EOF
 
       - name: Commit and push new posts & images
         run: |

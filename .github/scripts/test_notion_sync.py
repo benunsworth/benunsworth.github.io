@@ -198,7 +198,35 @@ class TestFrontMatterAndSiteCheckSchema(unittest.TestCase):
         self.assertIn('tags: [open-working, leadership]', yaml_str)
 
 
+from unittest.mock import MagicMock, patch
+
+
 class TestImageOptimization(unittest.TestCase):
+    def test_get_jekyll_image_path(self):
+        # Relative path (standard output_dir from BlockParser)
+        p1 = Path("public/images/posts/2026/the-power-law-1.jpg")
+        self.assertEqual(notion_sync.get_jekyll_image_path(p1), "/public/images/posts/2026/the-power-law-1.jpg")
+
+        # Absolute path (e.g. runners with full paths)
+        p2 = Path("/home/runner/work/benunsworth.github.io/benunsworth.github.io/public/images/posts/2026/the-power-law-1.jpg")
+        self.assertEqual(notion_sync.get_jekyll_image_path(p2), "/public/images/posts/2026/the-power-law-1.jpg")
+
+        # Path with leading slash
+        p3 = "/public/images/posts/2026/the-power-law-1.jpg"
+        self.assertEqual(notion_sync.get_jekyll_image_path(p3), "/public/images/posts/2026/the-power-law-1.jpg")
+
+        # Accidental double /public/ (regression test for commit 2889a8b)
+        p4 = "/public/public/images/posts/2026/the-power-law-1.jpg"
+        self.assertEqual(notion_sync.get_jekyll_image_path(p4), "/public/images/posts/2026/the-power-law-1.jpg")
+
+        # Path starting with images/ without public/
+        p5 = "images/posts/2026/the-power-law-1.jpg"
+        self.assertEqual(notion_sync.get_jekyll_image_path(p5), "/public/images/posts/2026/the-power-law-1.jpg")
+
+        # Non-images public path
+        p6 = Path("public/downloads/paper.pdf")
+        self.assertEqual(notion_sync.get_jekyll_image_path(p6), "/public/downloads/paper.pdf")
+
     def test_image_resizing_and_saving(self):
         # Create a test high-res image (2400x1600) in memory
         test_img = Image.new("RGBA", (2400, 1600), color=(188, 82, 21, 255))
@@ -228,6 +256,58 @@ class TestImageOptimization(unittest.TestCase):
             self.assertEqual(saved_img.height, 1066)
         self.assertLess(dest_path.stat().st_size, 300 * 1024)  # <300KB
         dest_path.unlink()
+
+    def test_download_and_optimize_image_returns_canonical_rel_path(self):
+        # Create a small valid test JPEG in memory
+        test_img = Image.new("RGB", (100, 100), color=(188, 82, 21))
+        buf = io.BytesIO()
+        test_img.save(buf, format="JPEG")
+        fake_bytes = buf.getvalue()
+
+        mock_resp = MagicMock()
+        mock_resp.headers = {"Content-Type": "image/jpeg"}
+        mock_resp.read.return_value = fake_bytes
+        mock_resp.__enter__.return_value = mock_resp
+
+        output_dir = Path("/tmp/test_download_img/public/images/posts/2026")
+
+        with patch("urllib.request.urlopen", return_value=mock_resp):
+            rel_path, dest_path_str = notion_sync.download_and_optimize_image(
+                "https://example.com/cover.jpg",
+                output_dir,
+                "the-power-law",
+                1,
+            )
+
+        self.assertEqual(rel_path, "/public/images/posts/2026/the-power-law-1.jpg")
+        self.assertNotIn("/public/public/", rel_path)
+        self.assertTrue(Path(dest_path_str).exists())
+        Path(dest_path_str).unlink()
+
+    def test_block_parser_renders_canonical_image_links(self):
+        parser = notion_sync.BlockParser(post_year="2026", post_slug="the-power-law", post_title="The Power Law")
+        blocks = [
+            {
+                "type": "image",
+                "image": {
+                    "type": "external",
+                    "external": {"url": "https://example.com/cover.jpg"},
+                    "caption": [{"plain_text": "Book Cover"}],
+                },
+            }
+        ]
+
+        with patch.object(
+            notion_sync,
+            "download_and_optimize_image",
+            return_value=("/public/images/posts/2026/the-power-law-1.jpg", "/tmp/fake.jpg"),
+        ):
+            md = parser.parse_blocks(blocks)
+
+        self.assertIn("![Book Cover](/public/images/posts/2026/the-power-law-1.jpg)", md)
+        self.assertNotIn("/public/public/", md)
+        self.assertEqual(len(parser.images), 1)
+        self.assertEqual(parser.images[0]["rel_path"], "/public/images/posts/2026/the-power-law-1.jpg")
 
 
 if __name__ == "__main__":
