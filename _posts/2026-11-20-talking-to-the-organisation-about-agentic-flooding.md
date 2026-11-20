@@ -30,5 +30,3 @@ The answers to the second question show how challenging this will be and why som
 - Proactive publication of open and clearly licensed data
 
 I don’t expect regulation to move fast enough to set the rules before we start to be overwhelmed, so it was important to start the conversation with colleagues. This is a proper multi-disciplinary problem and we will need frontline services, technologists, policy people and lawyers in the room for the work that comes next.
-
-![Talking to the organisation about agentic flooding](/public/images/posts/2026/talking-to-the-organisation-about-agentic-flooding-1.jpg)
